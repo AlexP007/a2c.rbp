@@ -123,7 +123,7 @@ Class a2c_resume_blog_pack extends CModule
 
         foreach ($files as $file) {
             if (!symlink($file['FROM'], $file['TO'])) {
-                throw new Exception(Loc::getMessage('A2C_RBP_LINK_PROBLEM', ['#LINK#' => $files['TO']]) );
+                throw new Exception(Loc::getMessage('A2C_RBP_LINK_PROBLEM', ['#LINK#' => $file['TO']]) );
             }
         }
     }
