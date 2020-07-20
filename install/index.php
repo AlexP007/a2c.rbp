@@ -154,18 +154,4 @@ Class a2c_resume_blog_pack extends CModule
     {
         return dirname(__DIR__);
     }
-
-    /**
-     * Проверяет существование каталога
-     *
-     * @param string $name
-     * @param string $fullPath
-     * @throws Exception
-     */
-    private function checkDir(string $fullPath)
-    {
-        if (!file_exists($fullPath) ) {
-            throw new Exception(Loc::getMessage('A2C_CHECKOUT_COMPONENT_PATH_DOESNT_EXISTS', array('#DIR#' => $fullPath)) );
-        }
-    }
 }
