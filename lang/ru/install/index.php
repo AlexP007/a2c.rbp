@@ -1,6 +1,6 @@
 <?php
 // DESCRIPTION
-$MESS['A2C_RBP_MODULE_NAME'] = 'Пакет резюме и блог';
+$MESS['A2C_RBP_MODULE_NAME'] = 'Блог и резюме';
 $MESS['A2C_RBP_MODULE_DESC'] = 'Компоненты для быстрого разворота сайта';
 $MESS['A2C_RBP_PARTNER_NAME'] = 'Компоненты для быстрого разворота сайта';
 

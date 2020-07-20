@@ -63,7 +63,6 @@ Class a2c_resume_blog_pack extends CModule
             ModuleManager::unRegisterModule($this->MODULE_ID);
 
             $APPLICATION->ThrowException($e->getMessage());
-            $this->includeStep_2();
         }
 
         // Заключительный экран
