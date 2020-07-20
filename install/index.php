@@ -142,13 +142,13 @@ Class a2c_resume_blog_pack extends CModule
 
     private function getComponents()
     {
-        $components = __DIR__ . '/components';
+        $components = $this->getPath() . '/components';
         $docRoot = Application::getDocumentRoot();
 
         return [
             [
                 'FROM' => $components,
-                'TO' => $docRoot . "/local/components/$this->MODULE_ID"
+                'TO' => "$docRoot/local/components/$this->MODULE_ID"
             ]
         ];
     }
