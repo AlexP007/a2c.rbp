@@ -8,6 +8,7 @@ $MESS['A2C_RBP_PARTNER_NAME'] = 'Компоненты для быстрого р
 $MESS['A2C_RBP_NO_RIGHTS'] = 'Недостаточно прав для установки';
 $MESS['A2C_RBP_PHP_WRONG_VERSION'] = 'Требуется версия PHP не ниже #PHP_VERSION#';
 $MESS['A2C_RBP_NO_D7'] = 'Требуется версия Битрикс с модулем D7';
+$MESS['A2C_RBP_LINK_PROBLEM'] = 'Не удалось установить компоненты #LINK#';
 
 // STEPS
 $MESS['A2C_RBP_INSTALL_STEP_FINAL'] = 'Шаг установки: Заключительный';

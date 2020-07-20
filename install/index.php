@@ -61,7 +61,6 @@ Class a2c_resume_blog_pack extends CModule
 
         } catch (Exception $e) {
             ModuleManager::unRegisterModule($this->MODULE_ID);
-
             $APPLICATION->ThrowException($e->getMessage());
         }
 
@@ -105,7 +104,6 @@ Class a2c_resume_blog_pack extends CModule
     protected function includeStepFinal()
     {
         global $APPLICATION;
-
         $APPLICATION->IncludeAdminFile(Loc::getMessage('A2C_RBP_INSTALL_STEP_FINAL'), $this->getPath() . '/install/steps/step_final.php');
     }
 
@@ -125,7 +123,7 @@ Class a2c_resume_blog_pack extends CModule
 
         foreach ($files as $file) {
             if (!symlink($file['FROM'], $file['TO'])) {
-                throw new Exception(Loc::getMessage('A2C_CHECKOUT_LINK_PROBLEM', ['#LINK#' => $files['TO']]) );
+                throw new Exception(Loc::getMessage('A2C_RBP_LINK_PROBLEM', ['#LINK#' => $files['TO']]) );
             }
         }
     }
