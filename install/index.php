@@ -67,7 +67,7 @@ Class a2c_resume_blog_pack extends CModule
         }
 
         // Заключительный экран
-        $this->includeFinalStep();
+        $this->includeStepFinal();
     }
 
     /**
@@ -77,47 +77,10 @@ Class a2c_resume_blog_pack extends CModule
     {
         global $APPLICATION;
 
-        $context = Application::getInstance()->getContext();
-        $request = $context->getRequest();
+        $this->unInstallComponents();
 
-        if ($request['step'] < 2) {
-            $APPLICATION->IncludeAdminFile(Loc::getMessage('A2C_CHECKOUT_INSTALL_UNSTEP_1'), $this->getPath() . '/install/steps/unstep_1.php');
-
-        } elseif ($request['step'] == 2) {
-
-            // Подключим модуль
-            Loader::includeModule($this->MODULE_ID);
-
-            if (!$request['save_data']) {
-                $this->unInstallDB();
-            }
-
-            if (!$request['save_components']) {
-                if ($checkoutPath = Options::getCheckoutPath() ) {
-                    $checkoutFullPath = Application::getDocumentRoot() . $checkoutPath;
-                    $this->unInstallComponentIndexFile($checkoutFullPath);
-                }
-
-                if ($contactFormPath = Options::getContactFormPath() ) {
-                    $contactFormFullPath = Application::getDocumentRoot() . $contactFormPath;
-                    $this->unInstallComponentIndexFile($contactFormFullPath);
-                }
-            }
-
-            if (!$request['save_options']) {
-                Options::delete();
-            }
-
-            if (!$request['save_mail_events']) {
-                $this->unInstallMailEvents();
-                $this->unInstallMailTemplates();
-            }
-
-            $this->unInstallComponents();
-
-            ModuleManager::unRegisterModule($this->MODULE_ID);
-            $APPLICATION->IncludeAdminFile(Loc::getMessage('A2C_CHECKOUT_INSTALL_UNSTEP_2'), $this->getPath() . '/install/steps/unstep_2.php');
-        }
+        ModuleManager::unRegisterModule($this->MODULE_ID);
+        $APPLICATION->IncludeAdminFile(Loc::getMessage('A2C_RBP_INSTALL_UNSTEP_FINALE'), $this->getPath() . '/install/steps/unstep_final.php');
     }
 
     private function checkDependencies()
