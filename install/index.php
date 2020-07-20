@@ -140,7 +140,7 @@ Class a2c_resume_blog_pack extends CModule
     }
 
 
-    protected function includeFinalStep()
+    protected function includeStepFinal()
     {
         global $APPLICATION;
 
