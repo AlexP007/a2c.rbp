@@ -3,7 +3,7 @@
 use Bitrix\Main\Localization\Loc;
 
 if (!check_bitrix_sessid()) {
-    die("ACCESS_DENIED");
+    return;
 }
 
 if ($ex = $APPLICATION->GetException()) {
