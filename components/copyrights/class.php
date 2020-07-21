@@ -10,6 +10,20 @@ use A2C\RBP\Component\Basic;
 
 Loader::includeModule('a2c.rbp') or ShowError('Can\'t connect module a2c.rbp');
 
+/**
+ * Компонент Копирайт
+ *
+ * Class A2cRbpCopyrights
+ * Создает блок с информацией о копирайте
+ * Динамически вычесляет текущуй год
+ *
+ * @license MIT
+ *
+ * @author AlexP007
+ * @email alex.p.panteleev@gmail.com
+ * @link https://github.com/AlexP007/a2c.rbp
+ */
+
 class A2cRbpCopyrights extends Basic
 {
     public function onPrepareComponentParams($arParams)
