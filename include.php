@@ -2,6 +2,7 @@
 
 /**
  * Константы
+ *
  * @license MIT
  *
  * @author AlexP007
