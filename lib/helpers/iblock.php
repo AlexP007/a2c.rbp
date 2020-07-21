@@ -22,6 +22,8 @@ use Bitrix\Main\Loader,
  */
 class Iblock
 {
+    const MODULE_ID = 'iblock';
+
     /**
      * Возвращает массив свойств инфоблока
      * формата ['ID' => 2, 'NAME' => 'Цена']
@@ -45,7 +47,7 @@ class Iblock
     }
 
     /**
-     * Возвращает массив значений свойств
+     * Возвращает массив значений свойств элемента
      *
      * @param array $filterElts
      * @param array $filterProps
@@ -114,6 +116,6 @@ class Iblock
      */
     private static function includeModule()
     {
-        Loader::includeModule('iblock') or ShowError('no iblock module');
+        Loader::includeModule(self::MODULE_ID) or Tools::showModuleError(self::MODULE_ID);
     }
 }

@@ -4,11 +4,10 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 
-use CIBlockElement;
 use Bitrix\Main\Loader;
 
 use A2C\RBP\Component\Basic;
-use A2C\RBP\Helpers\Tools;
+use A2C\RBP\Helpers\{Iblock, Tools};
 
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
@@ -32,6 +31,7 @@ class A2cRbpIcons extends Basic
 {
     public function executeComponent()
     {
+        $arParams = $this->arParams;
         // tag cache
         if ($this->startResultCache(false)) {
 
@@ -41,8 +41,20 @@ class A2cRbpIcons extends Basic
             }
 
             // fetching data
-
-
+            $data = Iblock::getPropertyValues(
+                (int) $arParams['IBLOCK_ID'],
+                ['ID' => (int) $arParams['ELEMENT_ID']],
+                ['ID' => [
+                    $arParams['GITHUB'],
+                    $arParams['ADDRESS'],
+                    $arParams['INSTAGRAM'],
+                    $arParams['MAIL'],
+                    $arParams['TELEGRAM'],
+                    $arParams['TELEPHONE'],
+                    $arParams['TWITTER'],
+                ]]
+                );
+            $this->arResult['DATA'] = $data;
             $this->setResultCacheKeys([]);
             $this->includeComponentTemplate();
         }
