@@ -15,7 +15,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 }
 ?>
 
-<ul <?= isset($arParams['CONTAINER_CLASS']) ? "class=${arParams['CONTAINER_CLASS']}" : '' ?>
+<ul <?= isset($arParams['CONTAINER_CLASS']) ? "class=${arParams['CONTAINER_CLASS']}" : '' ?>>
     <?php if (isset($arResult['TWITTER'])): ?>
         <li>
             <a target="_blank" href="https://twitter.com/<?=$arResult['TWITTER']?>"><i class="fab fa-twitter"></i></a>
