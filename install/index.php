@@ -22,7 +22,7 @@ Class A2C_RBP extends CModule
         $arModuleVersion = [];
         include(__DIR__ . "/version.php");
 
-        $this->MODULE_ID = 'a2c.resume_blog_pack';
+        $this->MODULE_ID = 'a2c.rbp';
         $this->MODULE_VERSION = $arModuleVersion["VERSION"];
         $this->MODULE_VERSION_DATE = $arModuleVersion["VERSION_DATE"];
         $this->MODULE_NAME = Loc::getMessage("A2C_RBP_MODULE_NAME");
