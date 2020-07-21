@@ -31,6 +31,11 @@ $arComponentParameters = [
             'VALUES' => Parameters::getIBlocks(),
             'REFRESH' => "Y",
         ],
+        'CONTAINER_CLASS' => [
+            'PARENT' => 'VISUAL',
+            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_CONTAINER_CLASS'),
+            'TYPE' => 'STRING',
+        ],
     ]
 ];
 

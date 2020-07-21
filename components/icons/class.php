@@ -56,6 +56,7 @@ class A2cRbpIcons extends Basic
                 );
             $this->arResult = $this->prepareResult($data);
             $this->setResultCacheKeys([]);
+
             $this->includeComponentTemplate();
         }
     }

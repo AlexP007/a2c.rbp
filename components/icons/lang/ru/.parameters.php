@@ -23,6 +23,8 @@ $MESS['A2C_RBP_CONTACT_TELEGRAM'] = 'Телеграм';
 $MESS['A2C_RBP_CONTACT_TWITTER'] = 'Твиттер';
 $MESS['A2C_RBP_CONTACT_GITHUB'] = 'Гитхаб';
 
+$MESS['A2C_RBP_CONTACT_CONTAINER_CLASS'] = 'Класс контейнера';
+
 // TOOLTIP
 $MESS['IBLOCK_ID_TIP'] = 'Укажите инфоблок с данными (котакты/соцсети)';
 $MESS['ELEMENT_ID_TIP'] = 'Укажите конкретный элемент';
@@ -34,4 +36,6 @@ $MESS['INSTAGRAM_TIP'] = 'Свойство где хранится id инста
 $MESS['TELEGRAM_TIP'] = 'Свойство где хранится username телеграма';
 $MESS['TWITTER_TIP'] = 'Свойство где хранится id аккаунта твиттера';
 $MESS['GITHUB_TIP'] = 'Свойство где хранится id аккаунта гитхаба';
+
+$MESS['CONTAINER_CLASS'] = 'Задайте класс для контейнера блока';
 ?>
