@@ -6,8 +6,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 
 use Bitrix\Main\Localization\Loc;
 
-require_once '../../constants.php';
-
 $arComponentDescription = [
     "NAME" => Loc::getMessage("A2C_RBP_COPYRIGHTS_COMPONENT_NAME"),
     "DESCRIPTION" => Loc::getMessage("A2C_RBP_COPYRIGHTS_DESCRIPTION"),
