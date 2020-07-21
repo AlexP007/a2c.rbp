@@ -24,6 +24,7 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
     "PARAMETERS" => [
+        "CACHE_TIME"  =>  ["DEFAULT"=>36000000],
         'IBLOCK_ID' => [
             'PARENT' => 'DATA_SOURCE',
             'NAME' => Loc::getMessage('A2C_RBP_CONTACT_IBLOCK_ID'),
