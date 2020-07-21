@@ -4,9 +4,9 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 
-use A2c\ResumeBlogPack\Component\Basic;
+use A2C\RBP\Component\Basic;
 
-class Copyrights extends Basic
+class A2cRbpCopyrights extends Basic
 {
     public function onPrepareComponentParams($arParams)
     {

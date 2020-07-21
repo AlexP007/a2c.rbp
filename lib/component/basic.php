@@ -1,7 +1,7 @@
 <?php
 
 
-namespace A2c\ResumeBlogPack\Component;
+namespace A2C\RBP\Component;
 
 
 use CBitrixComponent;

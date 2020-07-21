@@ -8,7 +8,7 @@ use Bitrix\Main\Localization\Loc,
 
 Loc::loadMessages(__FILE__);
 
-Class a2c_resume_blog_pack extends CModule
+Class A2C_RBP extends CModule
 {
 
     const MIN_PHP_VERSION = '7.2';
