@@ -8,6 +8,15 @@ use Bitrix\Main\Localization\Loc,
 
 Loc::loadMessages(__FILE__);
 
+/**
+ * Class A2C_RBP
+ * Инсталлятор
+ * @license MIT
+ *
+ * @author AlexP007
+ * @email alex.p.panteleev@gmail.com
+ * @link https://github.com/AlexP007/a2c.checkout
+ */
 Class A2C_RBP extends CModule
 {
 
