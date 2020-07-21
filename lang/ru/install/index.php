@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * Языковые файлы установочного скрипта
+ * @license MIT
+ *
+ * @author AlexP007
+ * @email alex.p.panteleev@gmail.com
+ * @link https://github.com/AlexP007/a2c.checkout
+ */
+
 // DESCRIPTION
 $MESS['A2C_RBP_MODULE_NAME'] = 'Блог и резюме';
 $MESS['A2C_RBP_MODULE_DESC'] = 'Компоненты для быстрого разворота сайта';
