@@ -6,7 +6,7 @@
  *
  * @author AlexP007
  * @email alex.p.panteleev@gmail.com
- * @link https://github.com/AlexP007/a2c.checkout
+ * @link https://github.com/AlexP007/a2c.rbp
  */
 
 $MESS['A2C_RBP_UNINSTALL_SUCCESS'] = 'Модуль успешно удален';

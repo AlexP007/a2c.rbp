@@ -14,7 +14,7 @@ use CBitrixComponent;
  *
  * @author AlexP007
  * @email alex.p.panteleev@gmail.com
- * @link https://github.com/AlexP007/a2c.checkout
+ * @link https://github.com/AlexP007/a2c.rbp
  */
 class Basic extends CBitrixComponent
 {
