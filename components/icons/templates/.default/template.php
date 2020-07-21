@@ -16,34 +16,34 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 ?>
 
 <ul <?= isset($arParams['CONTAINER_CLASS']) ? "class=${arParams['CONTAINER_CLASS']}" : '' ?>
-    <?php if (isset($arParams['TWITTER'])): ?>
+    <?php if (isset($arResult['TWITTER'])): ?>
         <li>
-            <a target="_blank" href="https://twitter.com/<?=$arParams['TWITTER']?>"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://twitter.com/<?=$arResult['TWITTER']?>"><i class="fab fa-twitter"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arParams['TELEGRAM'])): ?>
+    <?php if (isset($arResult['TELEGRAM'])): ?>
         <li>
-            <a target="_blank" href="https://t.me/<?=$arParams['TELEGRAM']?>"><i class="fab fa-telegram-plane"></i></a>
+            <a target="_blank" href="https://t.me/<?=$arResult['TELEGRAM']?>"><i class="fab fa-telegram-plane"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arParams['INSTAGRAM'])): ?>
+    <?php if (isset($arResult['INSTAGRAM'])): ?>
         <li>
-            <a target="_blank" href="https://www.instagram.com/<?=$arParams['INSTAGRAM']?>"><i class="fab fa-instagram-square"></i></a>
+            <a target="_blank" href="https://www.instagram.com/<?=$arResult['INSTAGRAM']?>"><i class="fab fa-instagram-square"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arParams['GITHUB'])): ?>
+    <?php if (isset($arResult['GITHUB'])): ?>
         <li>
-            <a target="_blank" href="https://www.github.com/<?=$arParams['GITHUB']?>"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://www.github.com/<?=$arResult['GITHUB']?>"><i class="fab fa-github"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arParams['TELEPHONE'])): ?>
+    <?php if (isset($arResult['TELEPHONE'])): ?>
         <li>
-            <a target="_blank" href="tel:<?=$arParams['TELEPHONE']?>"><i class="fas fa-phone"></i></a>
+            <a target="_blank" href="tel:<?=$arResult['TELEPHONE']?>"><i class="fas fa-phone"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arParams['MAIL'])): ?>
+    <?php if (isset($arResult['MAIL'])): ?>
         <li>
-            <a target="_blank" href="mailto:<?=$arParams['MAIL']?>"><i class="fas fa-envelope"></i></a>
+            <a target="_blank" href="mailto:<?=$arResult['MAIL']?>"><i class="fas fa-envelope"></i></a>
         </li>
     <?php endif; ?>
 </ul>
