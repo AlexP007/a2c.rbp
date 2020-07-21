@@ -36,10 +36,27 @@ $arComponentParameters = [
 
 $iblockId = $arCurrentValues['IBLOCK_ID'];
 
+// Если есть ID инфоблока, то получим список элементов
+$elts = isset($iblockId) ? Parameters::getIElements((int) $iblockId) : [];
+
+if (!empty($elts) ) {
+    $arComponentParameters['PARAMETERS'][] = [
+        'ELEMENT_ID' => [
+            'PARENT' => 'DATA_SOURCE',
+            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_ELEMENT_ID'),
+            'TYPE' => 'LIST',
+            'VALUES' => $elts,
+            'REFRESH' => "Y",
+        ],
+    ];
+}
+
 // Если есть ID инфоблока, то получем свойства
 $props = isset($iblockId) ? Parameters::getIProps((int) $iblockId) : [];
+
 $iconParameters = [];
-if (!empty($props) ) {
+
+if (isset($arCurrentValues['ELEMENT_ID']) ) {
     $iconParameters = [
         'TELEPHONE' => [
             'PARENT' => 'DATA_SOURCE',
