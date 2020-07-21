@@ -12,9 +12,9 @@ $arComponentDescription = [
     "SORT" => 5,
     "CACHE_PATH" => "Y",
     "PATH" => [
-        "ID" => PARTNER_NAME,
+        "ID" => 'A2C',
         "CHILD" => [
-            "ID" => MODULE_NAME,
+            "ID" => 'resume_block_pack',
             "NAME" => Loc::getMessage("A2C_RBP_COPYRIGHTS_GROUP_NAME"),
             "SORT" => 30,
         ],
