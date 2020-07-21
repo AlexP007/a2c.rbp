@@ -40,7 +40,7 @@ $iblockId = $arCurrentValues['IBLOCK_ID'];
 $elts = isset($iblockId) ? Parameters::getIElements((int) $iblockId) : [];
 
 if (!empty($elts) ) {
-    $arComponentParameters['PARAMETERS'][] = [
+    $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
         'ELEMENT_ID' => [
             'PARENT' => 'DATA_SOURCE',
             'NAME' => Loc::getMessage('A2C_RBP_CONTACT_ELEMENT_ID'),
@@ -48,59 +48,55 @@ if (!empty($elts) ) {
             'VALUES' => $elts,
             'REFRESH' => "Y",
         ],
-    ];
+    ]);
 }
 
 // Если есть ID инфоблока, то получем свойства
 $props = isset($iblockId) ? Parameters::getIProps((int) $iblockId) : [];
 
-$iconParameters = [];
-
 if (isset($arCurrentValues['ELEMENT_ID']) ) {
-    $iconParameters = [
+    $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
         'TELEPHONE' => [
             'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_TELEPHONE'),
-            'TYPE' => 'LIST',
+            'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_TELEPHONE'),
+            'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
-        'MAIL' => [
+        'MAIL'      => [
             'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_MAIL'),
-            'TYPE' => 'LIST',
+            'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_MAIL'),
+            'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
-        'ADDRESS' => [
+        'ADDRESS'   => [
             'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_ADDRESS'),
-            'TYPE' => 'LIST',
+            'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_ADDRESS'),
+            'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
         'INSTAGRAM' => [
             'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_INSTAGRAM'),
-            'TYPE' => 'LIST',
+            'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_INSTAGRAM'),
+            'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
-        'TELEGRAM' => [
+        'TELEGRAM'  => [
             'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_TELEGRAM'),
-            'TYPE' => 'LIST',
+            'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_TELEGRAM'),
+            'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
-        'TWITTER' => [
+        'TWITTER'   => [
             'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_TWITTER'),
-            'TYPE' => 'LIST',
+            'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_TWITTER'),
+            'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
-        'GITHUB' => [
+        'GITHUB'    => [
             'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_GITHUB'),
-            'TYPE' => 'LIST',
+            'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_GITHUB'),
+            'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
-    ];
+    ]);
 }
-
-$arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], $iconParameters);
