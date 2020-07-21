@@ -4,7 +4,11 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 
+use Bitrix\Main\Loader;
+
 use A2C\RBP\Component\Basic;
+
+Loader::includeModule('a2c.rbp') or ShowError('Can\'t connect module a2c.rbp');
 
 class A2cRbpCopyrights extends Basic
 {
