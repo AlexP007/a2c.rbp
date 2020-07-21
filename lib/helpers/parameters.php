@@ -45,6 +45,7 @@ class Parameters
     public static function getIElements(int $id): array
     {
         $eltsList = Iblock::getIblockElements($id);
+        self::setPrompt($iblockList, 'Выберите  элемент');
         return array_column($eltsList, 'NAME', 'ID');
     }
 
