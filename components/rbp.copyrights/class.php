@@ -14,8 +14,8 @@ class A2cRbpCopyrights extends Basic
 {
     public function onPrepareComponentParams($arParams)
     {
-        $this->arParams['YEAR'] = trim($this->arParams['YEAR']);
-        $this->arParams['THIS_YEAR'] = date('Y');
+        $arParams['YEAR'] = trim($arParams['YEAR']);
+        $arParams['THIS_YEAR'] = date('Y');
         return parent::onPrepareComponentParams($arParams);
     }
 
