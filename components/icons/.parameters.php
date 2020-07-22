@@ -63,7 +63,7 @@ $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAM
 $userId = $arCurrentValues['USER_ID'];
 
 // Если есть ID пользователя, то получим свойства
-$props = isset($iblockId) ? Parameters::getUserProps((int) $userId) : [];
+$props = isset($userId) ? Parameters::getUserProps((int) $userId) : [];
 
 
 if (!empty($props)) {

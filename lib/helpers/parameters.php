@@ -85,11 +85,17 @@ class Parameters
         return array_column($users, 'LOGIN', 'ID');
     }
 
-    public static function getUserProps($id)
+    public static function getUserProps($id): array
     {
         $userProps = User::getProps($id, ['SELECT' => ['UF_*']]);
-        self::setPrompt($userProps, 'Выберите свойство');
-        return $userProps;
+        $result = [];
+        foreach ($userProps as $key => $value) {
+            if (strstr($key, 'UF_')) {
+                $result[] = ['NAME' => $key, 'ID' => $value];
+            }
+        }
+        self::setPrompt($result, 'Выберите свойство');
+        return array_column($result, 'NAME', 'ID');
     }
 
     /**
