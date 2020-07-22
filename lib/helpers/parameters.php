@@ -72,18 +72,17 @@ class Parameters
         $groupDb = \CGroup::GetList($by, $order, ['ACTIVE' => 'Y']);
         $result = [];
         while($group = $groupDb->Fetch()) {
-            $result[] = [$group['NAME'], $group['ID']];
+            $result[] = $group;
         }
         self::setPrompt($result, 'Выберите группу');
-        return $result;
+        return array_column($result, 'NAME', 'ID');
     }
     
     public static function getUsers(int $groupId): array
     {
         $users = User::getUsersIdName($groupId);
-        self::setPrompt($users, 'Выберите ползователя');
-        array_column($users, 'LOGIN', 'ID');
-        return $users;
+        array_push($users, ['ID' => '0', 'LOGIN' => 'Выберите пользователя']);
+        return array_column($users, 'LOGIN', 'ID');
     }
 
     public static function getUserProps($id)
