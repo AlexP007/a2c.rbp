@@ -90,7 +90,7 @@ class Parameters
         $userProps = User::getProps($id, ['SELECT' => ['UF_*']]);
         $result = [];
         foreach ($userProps as $key => $value) {
-            if (preg_match('/^UF/')) {
+            if (preg_match('/^UF/', $key)) {
                 $result[] = ['NAME' => $key, 'ID' => $value];
             }
         }
