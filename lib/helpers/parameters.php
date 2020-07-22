@@ -64,6 +64,20 @@ class Parameters
         self::setPrompt($propsList, 'Выберите свойства');
         return array_column($propsList, 'NAME', 'ID');
     }
+    
+    public static function getUsers(): array 
+    {
+        $users = User::getUsersIdName();
+        self::setPrompt($users, 'Выберите ползователя');
+        return $users;
+    }
+
+    public static function getUserProps($id)
+    {
+        $userProps = User::getProps($id, ['SELECT' => ['UF_*']]);
+        self::setPrompt($userProps, 'Выберите свойство');
+        return $userProps;
+    }
 
     /**
      * Устанавливает значение по умолчанию
