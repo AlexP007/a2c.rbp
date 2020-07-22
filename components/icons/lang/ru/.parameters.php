@@ -33,9 +33,9 @@ $MESS['A2C_RBP_CONTACT_CONTAINER_CLASS'] = 'Класс контейнера';
 $MESS['GROUP_ID_TIP'] = 'Пользователь будет выбран из этой группы';
 $MESS['USER_ID_TIP'] = 'Будут использованы свойства этого пользователя';
 
-$MESS['TELEPHONE_TIP'] = 'Будет выбрано значении из свойства PERSONAL_MOBILE';
-$MESS['MAIL_TIP'] = 'Будет выбрано значение из свойства EMAIL';
-$MESS['ADDRESS_TIP'] = 'Будет выбраны значения из свойств PERSONAL_COUNTRY и PERSONAL_CITY';
+$MESS['TELEPHONE_TIP'] = 'Будет выбрано значение из свойства Мобильный';
+$MESS['MAIL_TIP'] = 'Будет выбрано значение из свойства E-Mail';
+$MESS['ADDRESS_TIP'] = 'Будет выбраны значения из свойств Страна и Город';
 $MESS['INSTAGRAM_TIP'] = 'Свойство где хранится id инстаграма';
 $MESS['TELEGRAM_TIP'] = 'Свойство где хранится username телеграма';
 $MESS['TWITTER_TIP'] = 'Свойство где хранится id аккаунта твиттера';
