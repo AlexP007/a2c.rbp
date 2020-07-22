@@ -62,25 +62,11 @@ $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAM
 
 $userId = $arCurrentValues['USER_ID'];
 
-// Если есть ID пользователя, то получим список элементов
-$elts = isset($iblockId) ? Parameters::getIElements((int) $iblockId) : [];
+// Если есть ID пользователя, то получим свойства
+$props = isset($iblockId) ? Parameters::getUserProps((int) $userId) : [];
 
-if (!empty($elts) ) {
-    $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
-        'ELEMENT_ID' => [
-            'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_ELEMENT_ID'),
-            'TYPE' => 'LIST',
-            'VALUES' => $elts,
-            'REFRESH' => "Y",
-        ],
-    ]);
-}
 
-// Если есть ID инфоблока, то получем свойства
-$props = isset($iblockId) ? Parameters::getIProps((int) $iblockId) : [];
-
-if (isset($arCurrentValues['ELEMENT_ID']) ) {
+if (!empty($props)) {
     $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
         'TELEPHONE' => [
             'PARENT' => 'DATA_SOURCE',

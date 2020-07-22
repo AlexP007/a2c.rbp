@@ -28,6 +28,7 @@ $MESS['A2C_RBP_CONTACT_CONTAINER_CLASS'] = 'Класс контейнера';
 // TOOLTIP
 
 $MESS['GROUP_ID_TIP'] = 'Пользователь будет выбран из этой группы';
+$MESS['USER_ID_TIP'] = 'Будут использованы свойства этого пользователя';
 
 $MESS['TELEPHONE_TIP'] = 'Свойство где хранится телефон';
 $MESS['MAIL_TIP'] = 'Свойство где хранится e-mail';
