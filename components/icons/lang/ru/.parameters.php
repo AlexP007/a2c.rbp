@@ -12,8 +12,8 @@
  */
 
 // LOC
-$MESS['A2C_RBP_CONTACT_IBLOCK_ID'] = 'Инфоблок';
-$MESS['A2C_RBP_CONTACT_ELEMENT_ID'] = 'Элемент инфоблока';
+$MESS['A2C_RBP_CONTACT_GROUP_ID'] = 'Группа';
+$MESS['A2C_RBP_CONTACT_USER_ID'] = 'Пользователь';
 
 $MESS['A2C_RBP_CONTACT_TELEPHONE'] = 'Телефон';
 $MESS['A2C_RBP_CONTACT_MAIL'] = 'E-mail';
@@ -26,8 +26,8 @@ $MESS['A2C_RBP_CONTACT_GITHUB'] = 'Гитхаб';
 $MESS['A2C_RBP_CONTACT_CONTAINER_CLASS'] = 'Класс контейнера';
 
 // TOOLTIP
-$MESS['IBLOCK_ID_TIP'] = 'Укажите инфоблок с данными (котакты/соцсети)';
-$MESS['ELEMENT_ID_TIP'] = 'Укажите конкретный элемент';
+
+$MESS['GROUP_ID_TIP'] = 'Пользователь будет выбран из этой группы';
 
 $MESS['TELEPHONE_TIP'] = 'Свойство где хранится телефон';
 $MESS['MAIL_TIP'] = 'Свойство где хранится e-mail';

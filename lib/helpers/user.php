@@ -18,11 +18,14 @@ use CUser;
  */
 class User
 {
-    public static function getUsersIdName(): array
+    public static function getUsersIdName(int $groupId): array
     {
         $by = 'id';
         $order = 'desc';
-        $resultDb = CUser::GetList($by, $order, [], ['FIELDS' => ["ID", "LOGIN"]]);
+        $resultDb = CUser::GetList($by, $order,
+            ['GROUPS_ID' => [$groupId]],
+            ['FIELDS' => ["ID", "LOGIN"]]
+        );
         $result = [];
         while ($user = $resultDb->Fetch()) {
             $result[] = $user;

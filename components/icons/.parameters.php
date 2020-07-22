@@ -23,13 +23,19 @@ use A2C\RBP\Helpers\{Parameters, Tools};
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
+    'GROUPS' => [
+        'MODAL_SETTINGS' => [
+            'NAME' => Loc::getMessage('A2C_CHECKOUT_COMPONENTS_CART_ADD_PARAMETERS_GROUPS_MODAL_SETTINGS'),
+            'SORT' => 900,
+        ],
+    ],
     "PARAMETERS" => [
         "CACHE_TIME"  =>  ["DEFAULT"=>36000000],
-        'IBLOCK_ID' => [
+        'GROUP_ID' => [
             'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_IBLOCK_ID'),
+            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_GROUP_ID'),
             'TYPE' => 'LIST',
-            'VALUES' => Parameters::getIBlocks(),
+            'VALUES' => Parameters::getGroups(),
             'REFRESH' => "Y",
         ],
         'CONTAINER_CLASS' => [
@@ -39,10 +45,24 @@ $arComponentParameters = [
         ],
     ]
 ];
+$groupId = $arCurrentValues['GROUP_ID'];
+if (empty($groupId)) {
+    return;
+}
 
-$iblockId = $arCurrentValues['IBLOCK_ID'];
+$arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
+    'USER_ID' => [
+        'PARENT' => 'DATA_SOURCE',
+        'NAME' => Loc::getMessage('A2C_RBP_CONTACT_USER_ID'),
+        'TYPE' => 'LIST',
+        'VALUES' => Parameters::getUsers((int) $groupId),
+        'REFRESH' => "Y",
+    ],
+]);
 
-// Если есть ID инфоблока, то получим список элементов
+$userId = $arCurrentValues['USER_ID'];
+
+// Если есть ID пользователя, то получим список элементов
 $elts = isset($iblockId) ? Parameters::getIElements((int) $iblockId) : [];
 
 if (!empty($elts) ) {

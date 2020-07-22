@@ -64,11 +64,25 @@ class Parameters
         self::setPrompt($propsList, 'Выберите свойства');
         return array_column($propsList, 'NAME', 'ID');
     }
-    
-    public static function getUsers(): array 
+
+    public static function getGroups(): array
     {
-        $users = User::getUsersIdName();
+        $by = "c_sort";
+        $order = "asc";
+        $groupDb = \CGroup::GetList($by, $order, ['ACTIVE' => 'Y']);
+        $result = [];
+        while($group = $groupDb->Fetch()) {
+            $result[] = [$group['NAME'], $group['ID']];
+        }
+        self::setPrompt($result, 'Выберите группу');
+        return $result;
+    }
+    
+    public static function getUsers(int $groupId): array
+    {
+        $users = User::getUsersIdName($groupId);
         self::setPrompt($users, 'Выберите ползователя');
+        array_column($users, 'LOGIN', 'ID');
         return $users;
     }
 
