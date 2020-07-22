@@ -15,6 +15,9 @@
 $MESS['A2C_RBP_CONTACT_GROUP_ID'] = 'Группа';
 $MESS['A2C_RBP_CONTACT_USER_ID'] = 'Пользователь';
 
+$MESS['A2C_RBP_CONTACT_CONTACTS'] = 'Контакты';
+$MESS['A2C_RBP_CONTACT_SOCIALS'] = 'Соц. сети';
+
 $MESS['A2C_RBP_CONTACT_TELEPHONE'] = 'Телефон';
 $MESS['A2C_RBP_CONTACT_MAIL'] = 'E-mail';
 $MESS['A2C_RBP_CONTACT_ADDRESS'] = 'Адрес';
@@ -30,9 +33,9 @@ $MESS['A2C_RBP_CONTACT_CONTAINER_CLASS'] = 'Класс контейнера';
 $MESS['GROUP_ID_TIP'] = 'Пользователь будет выбран из этой группы';
 $MESS['USER_ID_TIP'] = 'Будут использованы свойства этого пользователя';
 
-$MESS['TELEPHONE_TIP'] = 'Свойство где хранится телефон';
-$MESS['MAIL_TIP'] = 'Свойство где хранится e-mail';
-$MESS['ADDRESS_TIP'] = 'Свойство где хранится адрес';
+$MESS['TELEPHONE_TIP'] = 'Будет выбрано значении из свойства PERSONAL_MOBILE';
+$MESS['MAIL_TIP'] = 'Будет выбрано значение из свойства EMAIL';
+$MESS['ADDRESS_TIP'] = 'Будет выбраны значения из свойств PERSONAL_COUNTRY и PERSONAL_CITY';
 $MESS['INSTAGRAM_TIP'] = 'Свойство где хранится id инстаграма';
 $MESS['TELEGRAM_TIP'] = 'Свойство где хранится username телеграма';
 $MESS['TWITTER_TIP'] = 'Свойство где хранится id аккаунта твиттера';

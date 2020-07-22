@@ -24,9 +24,13 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
     'GROUPS' => [
-        'MODAL_SETTINGS' => [
-            'NAME' => Loc::getMessage('A2C_CHECKOUT_COMPONENTS_CART_ADD_PARAMETERS_GROUPS_MODAL_SETTINGS'),
-            'SORT' => 900,
+        'CONTACTS' => [
+            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_CONTACTS'),
+            'SORT' => 450,
+        ],
+        'SOCIALS' => [
+            'NAME' => Loc::getMessage('A2C_RBP_CONTACT_SOCIALS'),
+            'SORT' => 460,
         ],
     ],
     "PARAMETERS" => [
@@ -69,43 +73,41 @@ $props = isset($userId) ? Parameters::getUserProps((int) $userId) : [];
 if (!empty($props)) {
     $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
         'TELEPHONE' => [
-            'PARENT' => 'DATA_SOURCE',
+            'PARENT' => 'CONTACTS',
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_TELEPHONE'),
-            'TYPE'   => 'LIST',
-            'VALUES' => $props,
+            'TYPE'   => 'CHECKBOX',
         ],
         'MAIL'      => [
-            'PARENT' => 'DATA_SOURCE',
+            'PARENT' => 'CONTACTS',
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_MAIL'),
-            'TYPE'   => 'LIST',
-            'VALUES' => $props,
+            'TYPE'   => 'CHECKBOX',
         ],
         'ADDRESS'   => [
-            'PARENT' => 'DATA_SOURCE',
+            'PARENT' => 'CONTACTS',
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_ADDRESS'),
-            'TYPE'   => 'LIST',
+            'TYPE'   => 'CHECKBOX',
             'VALUES' => $props,
         ],
         'INSTAGRAM' => [
-            'PARENT' => 'DATA_SOURCE',
+            'PARENT' => 'SOCIALS',
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_INSTAGRAM'),
             'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
         'TELEGRAM'  => [
-            'PARENT' => 'DATA_SOURCE',
+            'PARENT' => 'SOCIALS',
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_TELEGRAM'),
             'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
         'TWITTER'   => [
-            'PARENT' => 'DATA_SOURCE',
+            'PARENT' => 'SOCIALS',
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_TWITTER'),
             'TYPE'   => 'LIST',
             'VALUES' => $props,
         ],
         'GITHUB'    => [
-            'PARENT' => 'DATA_SOURCE',
+            'PARENT' => 'SOCIALS',
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_GITHUB'),
             'TYPE'   => 'LIST',
             'VALUES' => $props,
