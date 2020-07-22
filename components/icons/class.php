@@ -7,7 +7,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 use Bitrix\Main\Loader;
 
 use A2C\RBP\Component\Basic;
-use A2C\RBP\Helpers\{Iblock, Tools};
+use A2C\RBP\Helpers\{User, Tools};
 
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
@@ -32,28 +32,23 @@ class A2cRbpIcons extends Basic
     public function executeComponent()
     {
         $arParams = $this->arParams;
+        if (empty($arParams['USER_ID']) ) {
+            ShowError('Не указан id пользователя');
+            return;
+        }
         // tag cache
         if ($this->startResultCache(false)) {
 
-            if (!Loader::includeModule("iblock")) {
-                $this->abortResultCache();
-                Tools::showModuleError('iblock');
-            }
-
             // fetching data
-            $data = Iblock::getPropertyValues(
-                (int) $arParams['IBLOCK_ID'],
-                ['ID' => (int) $arParams['ELEMENT_ID']],
-                ['ID' => [
-                    $arParams['MAIL'],
-                    $arParams['TELEPHONE'],
-                    $arParams['ADDRESS'],
+            $data = User::getProps((int) $arParams['USER_ID'], [
+                'FIELDS' => ['MAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
+                'SELECT' => [
                     $arParams['GITHUB'],
                     $arParams['INSTAGRAM'],
                     $arParams['TELEGRAM'],
                     $arParams['TWITTER'],
-                ]]
-                );
+                ],
+            ]);
             $this->arResult = $this->prepareResult($data);
             $this->setResultCacheKeys([]);
 
