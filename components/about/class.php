@@ -48,6 +48,11 @@ class A2cRbpAbout extends Basic
                 ],
                 'SELECT' => [$arParams['ABOUT']],
             ]);
+            if (empty($data)) {
+                $this->abortResultCache();
+                ShowError('Пользователь не найден');
+                return;
+            }
             // определим город
             if (!empty($data['PERSONAL_COUNTRY'])) {
                 $data['~PERSONAL_COUNTRY'] = Tools::getUserCountry($data['PERSONAL_COUNTRY']);

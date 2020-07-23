@@ -82,6 +82,11 @@ class A2cRbpIcons extends Basic
                 'FIELDS' => array_values($this->fieldsMap),
                 'SELECT' => array_unique(array_filter(array_values($this->propsMap))),
             ]);
+            if (empty($data)) {
+                $this->abortResultCache();
+                ShowError('Пользователь не найден');
+                return;
+            }
             // определим город
             if (!empty($data['PERSONAL_COUNTRY'])) {
                 $data['~PERSONAL_COUNTRY'] = Tools::getUserCountry($data['PERSONAL_COUNTRY']);
