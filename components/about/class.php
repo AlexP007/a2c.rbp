@@ -4,6 +4,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 
+use DateTime;
+
 use Bitrix\Main\Loader;
 
 use A2C\RBP\Component\Basic;
@@ -63,8 +65,9 @@ class A2cRbpAbout extends Basic
             }
             // Посчитаем возраст
             if (!empty($data['PERSONAL_BIRTHDAY'])) {
-                $year = ConvertDateTime($data['PERSONAL_BIRTHDAY'], 'YYYY');
-                $data['PERSONAL_AGE'] = date('Y') - $year;
+                $birthStamp = MakeTimeStamp($data['PERSONAL_BIRTHDAY']);
+                $year = (new DateTime())->diff($birthStamp);
+                $data['PERSONAL_AGE'] = $year->y;
             }
             $this->arResult = $data;
             $this->setResultCacheKeys([]);
