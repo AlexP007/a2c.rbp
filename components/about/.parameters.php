@@ -56,11 +56,16 @@ $props = isset($userId) ? Parameters::getUserProps((int) $userId) : [];
 
 if (!empty($props)) {
     $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
-        'ABOUT' => [
-            'PARENT' => 'DATA_SOURCE',
-            'NAME'   => Loc::getMessage('A2C_RBP_ABOUT_ABOUT'),
-            'TYPE'   => 'LIST',
-            'VALUES' => $props,
+        'ABOUT'      => [
+            'PARENT'  => 'DATA_SOURCE',
+            'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_ABOUT'),
+            'TYPE'    => 'LIST',
+            'VALUES'  => $props,
+        ],
+        'HIDE_EMAIL' => [
+            'PARENT'  => 'ADDITIONAL_SETTINGS',
+            'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_HIDE_EMAIL'),
+            'TYPE'    => 'CHECKBOX',
         ],
     ]);
 }
