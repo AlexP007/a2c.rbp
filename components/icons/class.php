@@ -79,7 +79,7 @@ class A2cRbpIcons extends Basic
         if ($this->startResultCache(false)) {
             // данные
             $data = User::getProps((int) $arParams['USER_ID'], [
-                'FIELDS' => array_keys($this->fieldsMap),
+                'FIELDS' => array_values($this->fieldsMap),
                 'SELECT' => array_unique(array_filter(array_values($this->propsMap))),
             ]);
             // определим город
