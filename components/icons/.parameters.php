@@ -69,7 +69,6 @@ $userId = $arCurrentValues['USER_ID'];
 // Если есть ID пользователя, то получим свойства
 $props = isset($userId) ? Parameters::getUserProps((int) $userId) : [];
 
-
 if (!empty($props)) {
     $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
         'TELEPHONE' => [

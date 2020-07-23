@@ -91,7 +91,7 @@ class Parameters
         $result = [];
         foreach ($userProps as $key => $value) {
             if (preg_match('/^UF/', $key)) {
-                $result[] = ['NAME' => $key, 'ID' => $value];
+                $result[] = ['NAME' => $key, 'ID' => $key];
             }
         }
         self::setPrompt($result, 'Выберите свойство');
