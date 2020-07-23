@@ -11,7 +11,6 @@ use A2C\RBP\Helpers\{User, Tools};
 
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
-
 /**
  * Компонент Иконки
  *
@@ -26,7 +25,6 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  * @email alex.p.panteleev@gmail.com
  * @link https://github.com/AlexP007/a2c.rbp
  */
-
 class A2cRbpIcons extends Basic
 {
     public function executeComponent()
@@ -38,16 +36,16 @@ class A2cRbpIcons extends Basic
         }
         // tag cache
         if ($this->startResultCache(false)) {
-
+            $select = [
+                $arParams['GITHUB'],
+                $arParams['INSTAGRAM'],
+                $arParams['TELEGRAM'],
+                $arParams['TWITTER'],
+            ];
             // fetching data
             $data = User::getProps((int) $arParams['USER_ID'], [
                 'FIELDS' => ['MAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
-                'SELECT' => [
-                    $arParams['GITHUB'],
-                    $arParams['INSTAGRAM'],
-                    $arParams['TELEGRAM'],
-                    $arParams['TWITTER'],
-                ],
+                'SELECT' => array_unique($select),
             ]);
             $this->arResult = $this->prepareResult($data);
             $this->setResultCacheKeys([]);
