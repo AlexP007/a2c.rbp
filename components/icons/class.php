@@ -44,8 +44,8 @@ class A2cRbpIcons extends Basic
             ];
             // fetching data
             $data = User::getProps((int) $arParams['USER_ID'], [
-                'FIELDS' => ['MAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
-                'SELECT' => array_unique($select),
+                'FIELDS' => ['EMAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
+                'SELECT' => array_values(array_filter(array_unique($select))),
             ]);
             $this->arResult = $this->prepareResult($data);
             $this->setResultCacheKeys([]);
@@ -58,17 +58,33 @@ class A2cRbpIcons extends Basic
     {
         $result = [];
         $arParams = $this->arParams;
-        $data = $data[$arParams['ELEMENT_ID']];
 
         foreach ($data as $item) {
-            switch ($item['ID']) {
-                case $arParams['MAIL']: $result['MAIL'] = $item['VALUE']; break;
-                case $arParams['TELEPHONE']: $result['TELEPHONE'] = $item['VALUE']; break;
-                case $arParams['ADDRESS']: $result['ADDRESS'] = $item['VALUE']; break;
-                case $arParams['GITHUB']: $result['GITHUB'] = $item['VALUE']; break;
-                case $arParams['INSTAGRAM']: $result['INSTAGRAM'] = $item['VALUE']; break;
-                case $arParams['TELEGRAM']: $result['TELEGRAM'] = $item['VALUE']; break;
-                case $arParams['TWITTER']: $result['TWITTER'] = $item['VALUE']; break;
+            switch ($item) {
+                case $arParams['EMAIL']:
+                    $result['EMAIL'] = $item;
+                    break;
+                case $arParams['PERSONAL_MOBILE']:
+                    $result['PERSONAL_MOBILE'] = $item;
+                    break;
+                case $arParams['PERSONAL_COUNTRY']:
+                    $result['PERSONAL_COUNTRY'] = Tools::getUserCountry($item);
+                    break;
+                case $arParams['PERSONAL_CITY']:
+                    $result['PERSONAL_CITY'] = $item;
+                    break;
+                case $arParams['GITHUB']:
+                    $result['GITHUB'] = $item;
+                    break;
+                case $arParams['INSTAGRAM']:
+                    $result['INSTAGRAM'] = $item;
+                    break;
+                case $arParams['TELEGRAM']:
+                    $result['TELEGRAM'] = $item;
+                    break;
+                case $arParams['TWITTER']:
+                    $result['TWITTER'] = $item;
+                    break;
             }
         }
 

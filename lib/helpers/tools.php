@@ -5,7 +5,7 @@ namespace A2C\RBP\Helpers;
 
 
 /**
- * Набор полезный методов
+ * Свалка полезных методов
  *
  * Class Parameters
  * @package A2C\RBP\Helpers
@@ -21,5 +21,13 @@ class Tools
     {
         ShowError("can't connect module: $modId");
         return true;
+    }
+
+    public static function getUserCountry(int $i): string
+    {
+        $countries = GetCountryArray();
+        $map = array_flip($countries['reference_id']);
+        $countryId = $map[$i];
+        return $countries['reference'][$countryId];
     }
 }
