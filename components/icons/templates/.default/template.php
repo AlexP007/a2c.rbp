@@ -36,12 +36,12 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
             <a target="_blank" href="https://www.github.com/<?=$arResult['GITHUB']?>"><i class="fab fa-github"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arResult['TELEPHONE'])): ?>
+    <?php if (isset($arResult['PERSONAL_MOBILE'])): ?>
         <li>
             <a target="_blank" href="tel:<?=$arResult['TELEPHONE']?>"><i class="fas fa-phone"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arResult['MAIL'])): ?>
+    <?php if (isset($arResult['EMAIL'])): ?>
         <li>
             <a target="_blank" href="mailto:<?=$arResult['MAIL']?>"><i class="fas fa-envelope"></i></a>
         </li>

@@ -75,16 +75,12 @@ class A2cRbpIcons extends Basic
                     break;
                 case $arParams['GITHUB']:
                     $result['GITHUB'] = $item;
-                    break;
                 case $arParams['INSTAGRAM']:
                     $result['INSTAGRAM'] = $item;
-                    break;
                 case $arParams['TELEGRAM']:
                     $result['TELEGRAM'] = $item;
-                    break;
                 case $arParams['TWITTER']:
                     $result['TWITTER'] = $item;
-                    break;
             }
         }
 
