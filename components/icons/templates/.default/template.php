@@ -16,24 +16,24 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 ?>
 
 <ul <?= isset($arParams['CONTAINER_CLASS']) ? "class=${arParams['CONTAINER_CLASS']}" : '' ?>>
-    <?php if (isset($arResult['~TWITTER'])): ?>
+    <?php if (isset($arResult['~UF_TWITTER'])): ?>
         <li>
-            <a target="_blank" href="https://twitter.com/<?=$arResult['~TWITTER']?>"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://twitter.com/<?=$arResult['~UF_TWITTER']?>"><i class="fab fa-twitter"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arResult['~TELEGRAM'])): ?>
+    <?php if (isset($arResult['~UF_TELEGRAM'])): ?>
         <li>
-            <a target="_blank" href="https://t.me/<?=$arResult['~TELEGRAM']?>"><i class="fab fa-telegram-plane"></i></a>
+            <a target="_blank" href="https://t.me/<?=$arResult['~UF_TELEGRAM']?>"><i class="fab fa-telegram-plane"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arResult['~INSTAGRAM'])): ?>
+    <?php if (isset($arResult['~UF_INSTAGRAM'])): ?>
         <li>
-            <a target="_blank" href="https://www.instagram.com/<?=$arResult['~INSTAGRAM']?>"><i class="fab fa-instagram-square"></i></a>
+            <a target="_blank" href="https://www.instagram.com/<?=$arResult['~UF_INSTAGRAM']?>"><i class="fab fa-instagram-square"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arResult['~GITHUB'])): ?>
+    <?php if (isset($arResult['~UF_GITHUB'])): ?>
         <li>
-            <a target="_blank" href="https://www.github.com/<?=$arResult['~GITHUB']?>"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://www.github.com/<?=$arResult['~UF_GITHUB']?>"><i class="fab fa-github"></i></a>
         </li>
     <?php endif; ?>
     <?php if (isset($arResult['~PERSONAL_MOBILE'])): ?>

@@ -32,10 +32,6 @@ class A2cRbpIcons extends Basic
 
     public function onPrepareComponentParams($arParams)
     {
-        if (!empty($arParams['PERSONAL_COUNTRY'])) {
-            $arParams['PERSONAL_COUNTRY'] = Tools::getUserCountry($arParams['PERSONAL_COUNTRY']);
-        }
-
         $this->prepareFields($arParams);
         $this->prepareSelect($arParams);
         return parent::onPrepareComponentParams($arParams);
@@ -56,6 +52,10 @@ class A2cRbpIcons extends Basic
                 'FIELDS' => ['EMAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
                 'SELECT' => $this->select,
             ]);
+            // определим город
+            if (!empty($data['PERSONAL_COUNTRY'])) {
+                $arParams['~PERSONAL_COUNTRY'] = Tools::getUserCountry($arParams['PERSONAL_COUNTRY']);
+            }
             $this->arResult = $this->prepareResult($data);
             $this->setResultCacheKeys([]);
 
