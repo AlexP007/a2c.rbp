@@ -27,6 +27,20 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  */
 class A2cRbpIcons extends Basic
 {
+    private $fields = ['EMAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'];
+    private $select = [];
+
+    public function onPrepareComponentParams($arParams)
+    {
+        if (!empty($arParams['PERSONAL_COUNTRY'])) {
+            $arParams['PERSONAL_COUNTRY'] = Tools::getUserCountry($arParams['PERSONAL_COUNTRY']);
+        }
+
+        $this->prepareFields($arParams);
+        $this->prepareSelect($arParams);
+        return parent::onPrepareComponentParams($arParams);
+    }
+
     public function executeComponent()
     {
         $arParams = $this->arParams;
@@ -36,16 +50,11 @@ class A2cRbpIcons extends Basic
         }
         // tag cache
         if ($this->startResultCache(false)) {
-            $select = [
-                $arParams['GITHUB'],
-                $arParams['INSTAGRAM'],
-                $arParams['TELEGRAM'],
-                $arParams['TWITTER'],
-            ];
+
             // fetching data
             $data = User::getProps((int) $arParams['USER_ID'], [
                 'FIELDS' => ['EMAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
-                'SELECT' => array_values(array_filter(array_unique($select))),
+                'SELECT' => $this->select,
             ]);
             $this->arResult = $this->prepareResult($data);
             $this->setResultCacheKeys([]);
@@ -54,33 +63,40 @@ class A2cRbpIcons extends Basic
         }
     }
 
+    private function prepareFields(array $arParams)
+    {
+        if ($arParams['EMAIL'] === 'Y') {
+            $this->fields[] = 'EMAIL';
+        }
+        if ($arParams['TELEPHONE'] === 'Y') {
+            $this->fields[] = 'PERSONAL_MOBILE';
+        }
+        if ($arParams['ADDRESS'] === 'Y') {
+            $this->fields[] = 'PERSONAL_COUNTRY';
+            $this->fields[] = 'PERSONAL_CITY';
+        }
+    }
+
+    private function prepareSelect(array $arParams)
+    {
+        $select = [
+            $arParams['GITHUB'],
+            $arParams['INSTAGRAM'],
+            $arParams['TELEGRAM'],
+            $arParams['TWITTER'],
+        ];
+
+        $this->select = array_values(array_filter(array_unique($select)));
+    }
+
     private function prepareResult(array $data): array
     {
         $result = [];
-        $arParams = $this->arParams;
+        $usedProps = array_merge($this->fields, $this->select);
 
         foreach ($data as $key => $item) {
-            switch ($key) {
-                case 'EMAIL':
-                    $result['EMAIL'] = $item;
-                    break;
-                case 'PERSONAL_MOBILE':
-                    $result['PERSONAL_MOBILE'] = $item;
-                    break;
-                case 'PERSONAL_COUNTRY':
-                    $result['PERSONAL_COUNTRY'] = Tools::getUserCountry($item);
-                    break;
-                case 'PERSONAL_CITY':
-                    $result['PERSONAL_CITY'] = $item;
-                    break;
-                case $arParams['GITHUB']:
-                    $result['GITHUB'] = $item;
-                case $arParams['INSTAGRAM']:
-                    $result['INSTAGRAM'] = $item;
-                case $arParams['TELEGRAM']:
-                    $result['TELEGRAM'] = $item;
-                case $arParams['TWITTER']:
-                    $result['TWITTER'] = $item;
+            if (in_array($key, $usedProps)) {
+                $result[] = $item;
             }
         }
 

@@ -76,7 +76,7 @@ if (!empty($props)) {
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_TELEPHONE'),
             'TYPE'   => 'CHECKBOX',
         ],
-        'MAIL'      => [
+        'EMAIL'      => [
             'PARENT' => 'CONTACTS',
             'NAME'   => Loc::getMessage('A2C_RBP_CONTACT_MAIL'),
             'TYPE'   => 'CHECKBOX',
