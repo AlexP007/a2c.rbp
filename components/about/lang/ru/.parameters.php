@@ -14,7 +14,7 @@
 // LOC
 $MESS['A2C_RBP_ABOUT_HEADING'] = 'Заголовок';
 
-$MESS['A2C_RBP_ABOUT_USER_ID'] = 'Пользователь';
+$MESS['A2C_RBP_ABOUT_GROUP_ID'] = 'Группа';
 $MESS['A2C_RBP_ABOUT_USER_ID'] = 'Пользователь';
 
 $MESS['A2C_RBP_ABOUT_BUTTON'] = 'Кнопка';
