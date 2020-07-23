@@ -60,7 +60,7 @@ class A2cRbpIcons extends Basic
             $arParams['TWITTER'],
         ];
 
-        $this->select = array_values(array_filter(array_unique($select)));
+        $this->select = array_filter(($select));
     }
 
     public function executeComponent()
@@ -74,8 +74,8 @@ class A2cRbpIcons extends Basic
         if ($this->startResultCache(false)) {
             // данные
             $data = User::getProps((int) $arParams['USER_ID'], [
-                'FIELDS' => ['EMAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
-                'SELECT' => $this->select,
+                'FIELDS' => $this->fields,
+                'SELECT' => array_unique($this->select),
             ]);
             // определим город
             if (!empty($data['PERSONAL_COUNTRY'])) {
@@ -91,15 +91,12 @@ class A2cRbpIcons extends Basic
     private function prepareResult(array $data): array
     {
         $result = [];
-        $usedProps = array_merge($this->fields, $this->select);
         // берем только экранированные строки
-        $usedProps = array_map(function ($elt) {
-            return '~' . $elt;
-        }, $usedProps);
-
-        foreach ($data as $key => $item) {
-            if (in_array($key, $usedProps)) {
-                $result[$key] = $item;
+        $usedProps = array_merge($this->fields, $this->select);
+        foreach ($usedProps as $prop) {
+            $safeProp = '~' . $prop;
+            if (!empty($data[$safeProp])) {
+                $result[$safeProp] = $data[$safeProp];
             }
         }
 
