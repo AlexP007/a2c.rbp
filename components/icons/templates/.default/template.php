@@ -14,7 +14,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 ?>
-
+<?php if(!empty($arResult)): ?>
 <ul <?= isset($arParams['CONTAINER_CLASS']) ? "class=${arParams['CONTAINER_CLASS']}" : '' ?>>
     <?php if (isset($arResult['~TWITTER'])): ?>
         <li>
@@ -47,3 +47,4 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
         </li>
     <?php endif; ?>
 </ul>
+<?php endif; ?>
