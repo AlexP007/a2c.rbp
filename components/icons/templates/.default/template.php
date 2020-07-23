@@ -38,7 +38,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     <?php endif; ?>
     <?php if (isset($arResult['~TELEPHONE'])): ?>
         <li>
-            <a target="_blank" href="tel:<?=$arResult['~MOBILE']?>"><i class="fas fa-phone"></i></a>
+            <a target="_blank" href="tel:<?=$arResult['~TELEPHONE']?>"><i class="fas fa-phone"></i></a>
         </li>
     <?php endif; ?>
     <?php if (isset($arResult['~EMAIL'])): ?>
