@@ -23,35 +23,35 @@ use A2C\RBP\Helpers\{Parameters, Tools};
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
-    'GROUPS' => [
+    'GROUPS'     => [
         'BUTTON' => [
             'NAME' => Loc::getMessage('A2C_RBP_ABOUT_BUTTON'),
             'SORT' => 950,
         ],
     ],
     "PARAMETERS" => [
-        "CACHE_TIME"  =>  ["DEFAULT"=>36000000],
-        'GROUP_ID' => [
-            'PARENT' => 'DATA_SOURCE',
-            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_GROUP_ID'),
-            'TYPE' => 'LIST',
-            'VALUES' => Parameters::getGroups(),
+        "CACHE_TIME"   => ["DEFAULT" => 36000000],
+        'GROUP_ID'     => [
+            'PARENT'  => 'DATA_SOURCE',
+            'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_GROUP_ID'),
+            'TYPE'    => 'LIST',
+            'VALUES'  => Parameters::getGroups(),
             'REFRESH' => "Y",
         ],
-        'BUTTON_TEXT' => [
+        'BUTTON_TEXT'  => [
             'PARENT' => 'BUTTON',
-            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_TEXT'),
-            'TYPE' => 'STRING',
+            'NAME'   => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_TEXT'),
+            'TYPE'   => 'STRING',
         ],
-        'BUTTON_LINK' => [
+        'BUTTON_LINK'  => [
             'PARENT' => 'BUTTON',
-            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_LINK'),
-            'TYPE' => 'STRING',
+            'NAME'   => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_LINK'),
+            'TYPE'   => 'STRING',
         ],
         'BUTTON_CLASS' => [
             'PARENT' => 'BUTTON',
-            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_CLASS'),
-            'TYPE' => 'STRING',
+            'NAME'   => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_CLASS'),
+            'TYPE'   => 'STRING',
         ],
     ]
 ];
@@ -62,10 +62,10 @@ if (empty($groupId)) {
 
 $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
     'USER_ID' => [
-        'PARENT' => 'DATA_SOURCE',
-        'NAME' => Loc::getMessage('A2C_RBP_ABOUT_USER_ID'),
-        'TYPE' => 'LIST',
-        'VALUES' => Parameters::getUsers((int) $groupId),
+        'PARENT'  => 'DATA_SOURCE',
+        'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_USER_ID'),
+        'TYPE'    => 'LIST',
+        'VALUES'  => Parameters::getUsers((int)$groupId),
         'REFRESH' => "Y",
     ],
 ]);
@@ -77,26 +77,26 @@ $props = isset($userId) ? Parameters::getUserProps((int) $userId) : [];
 
 if (!empty($props)) {
     $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
-        'ABOUT'      => [
-            'PARENT'  => 'DATA_SOURCE',
-            'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_ABOUT'),
-            'TYPE'    => 'LIST',
-            'VALUES'  => $props,
+        'ABOUT'        => [
+            'PARENT' => 'DATA_SOURCE',
+            'NAME'   => Loc::getMessage('A2C_RBP_ABOUT_ABOUT'),
+            'TYPE'   => 'LIST',
+            'VALUES' => $props,
         ],
         "IMAGE_HEIGHT" => [
             "PARENT" => "ADDITIONAL_SETTINGS",
-            "NAME" => Loc::getMessage("A2C_RBP_ABOUT_IMAGE_HEIGHT"),
-            "TYPE" => "STRING",
+            "NAME"   => Loc::getMessage("A2C_RBP_ABOUT_IMAGE_HEIGHT"),
+            "TYPE"   => "STRING",
         ],
-        "IMAGE_WIDTH" => [
+        "IMAGE_WIDTH"  => [
             "PARENT" => "ADDITIONAL_SETTINGS",
-            "NAME" => Loc::getMessage("A2C_RBP_ABOUT_IMAGE_WIDTH"),
-            "TYPE" => "STRING",
+            "NAME"   => Loc::getMessage("A2C_RBP_ABOUT_IMAGE_WIDTH"),
+            "TYPE"   => "STRING",
         ],
-        'HIDE_EMAIL' => [
-            'PARENT'  => 'ADDITIONAL_SETTINGS',
-            'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_HIDE_EMAIL'),
-            'TYPE'    => 'CHECKBOX',
+        'HIDE_EMAIL'   => [
+            'PARENT' => 'ADDITIONAL_SETTINGS',
+            'NAME'   => Loc::getMessage('A2C_RBP_ABOUT_HIDE_EMAIL'),
+            'TYPE'   => 'CHECKBOX',
         ],
     ]);
 }
