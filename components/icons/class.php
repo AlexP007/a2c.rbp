@@ -66,24 +66,24 @@ class A2cRbpIcons extends Basic
     private function prepareFields(array $arParams)
     {
         if ($arParams['EMAIL'] === 'Y') {
-            $this->fields[] = 'EMAIL';
+            $this->fields[] = '~EMAIL';
         }
         if ($arParams['TELEPHONE'] === 'Y') {
-            $this->fields[] = 'PERSONAL_MOBILE';
+            $this->fields[] = '~PERSONAL_MOBILE';
         }
         if ($arParams['ADDRESS'] === 'Y') {
-            $this->fields[] = 'PERSONAL_COUNTRY';
-            $this->fields[] = 'PERSONAL_CITY';
+            $this->fields[] = '~PERSONAL_COUNTRY';
+            $this->fields[] = '~PERSONAL_CITY';
         }
     }
 
     private function prepareSelect(array $arParams)
     {
         $select = [
-            $arParams['GITHUB'],
-            $arParams['INSTAGRAM'],
-            $arParams['TELEGRAM'],
-            $arParams['TWITTER'],
+            '~' . $arParams['GITHUB'],
+            '~' . $arParams['INSTAGRAM'],
+            '~' . $arParams['TELEGRAM'],
+            '~' . $arParams['TWITTER'],
         ];
 
         $this->select = array_values(array_filter(array_unique($select)));
@@ -96,7 +96,7 @@ class A2cRbpIcons extends Basic
 
         foreach ($data as $key => $item) {
             if (in_array($key, $usedProps)) {
-                $result[] = $item;
+                $result[$key] = $item;
             }
         }
 
