@@ -35,7 +35,7 @@ class A2cRbpAbout extends Basic
         // кэш
         if ($this->startResultCache(false)) {
             // данные
-            $data = User::getProps((int) $arParams['USER_ID'], [
+            $this->arResult = User::getProps((int) $arParams['USER_ID'], [
                 'FIELDS' => [
                     'NAME',
                     'LAST_NAME',
@@ -51,6 +51,10 @@ class A2cRbpAbout extends Basic
             // определим город
             if (!empty($data['PERSONAL_COUNTRY'])) {
                 $data['~PERSONAL_COUNTRY'] = Tools::getUserCountry($data['PERSONAL_COUNTRY']);
+            }
+            // Обрежем и достанем фото
+            if (!empty($data['PERSONAL_PHOTO'])) {
+                $data['PERSONAL_PHOTO'] = $this->cropPicture($data['PERSONAL_PHOTO']);
             }
             $this->setResultCacheKeys([]);
 

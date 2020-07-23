@@ -23,6 +23,12 @@ use A2C\RBP\Helpers\{Parameters, Tools};
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
+    'GROUPS' => [
+        'BUTTON' => [
+            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_BUTTON'),
+            'SORT' => 950,
+        ],
+    ],
     "PARAMETERS" => [
         "CACHE_TIME"  =>  ["DEFAULT"=>36000000],
         'GROUP_ID' => [
@@ -31,6 +37,21 @@ $arComponentParameters = [
             'TYPE' => 'LIST',
             'VALUES' => Parameters::getGroups(),
             'REFRESH' => "Y",
+        ],
+        'BUTTON_TEXT' => [
+            'PARENT' => 'BUTTON',
+            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_TEXT'),
+            'TYPE' => 'STRING',
+        ],
+        'BUTTON_LINK' => [
+            'PARENT' => 'BUTTON',
+            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_LINK'),
+            'TYPE' => 'STRING',
+        ],
+        'BUTTON_CLASS' => [
+            'PARENT' => 'BUTTON',
+            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_CLASS'),
+            'TYPE' => 'STRING',
         ],
     ]
 ];
@@ -61,6 +82,16 @@ if (!empty($props)) {
             'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_ABOUT'),
             'TYPE'    => 'LIST',
             'VALUES'  => $props,
+        ],
+        "IMAGE_HEIGHT" => [
+            "PARENT" => "ADDITIONAL_SETTINGS",
+            "NAME" => Loc::getMessage("A2C_RBP_ABOUT_IMAGE_HEIGHT"),
+            "TYPE" => "STRING",
+        ],
+        "IMAGE_WIDTH" => [
+            "PARENT" => "ADDITIONAL_SETTINGS",
+            "NAME" => Loc::getMessage("A2C_RBP_ABOUT_IMAGE_WIDTH"),
+            "TYPE" => "STRING",
         ],
         'HIDE_EMAIL' => [
             'PARENT'  => 'ADDITIONAL_SETTINGS',
