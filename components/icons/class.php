@@ -27,40 +27,45 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  */
 class A2cRbpIcons extends Basic
 {
-    private $fields = [];
-    private $select = [];
+    private $fieldsMap = [];
+    private $propsMap = [];
 
     public function onPrepareComponentParams($arParams)
     {
-        $this->prepareFields($arParams);
-        $this->prepareSelect($arParams);
+        $this->prepareFieldsMap($arParams);
+        $this->preparePropsMap($arParams);
+
         return parent::onPrepareComponentParams($arParams);
     }
 
-    private function prepareFields(array $arParams)
+    private function prepareFieldsMap(array $arParams)
     {
         if ($arParams['EMAIL'] === 'Y') {
-            $this->fields[] = 'EMAIL';
+            $this->fieldsMap['EMAIL'] = 'EMAIL';
         }
         if ($arParams['TELEPHONE'] === 'Y') {
-            $this->fields[] = 'PERSONAL_MOBILE';
+            $this->fieldsMap['MOBILE'] = 'PERSONAL_MOBILE';
         }
         if ($arParams['ADDRESS'] === 'Y') {
-            $this->fields[] = 'PERSONAL_COUNTRY';
-            $this->fields[] = 'PERSONAL_CITY';
+            $this->fieldsMap['COUNTRY'] = 'PERSONAL_COUNTRY';
+            $this->fieldsMap['CITY'] = 'PERSONAL_CITY';
         }
     }
 
-    private function prepareSelect(array $arParams)
+    private function preparePropsMap(array $arParams)
     {
-        $select = [
-            $arParams['GITHUB'],
-            $arParams['INSTAGRAM'],
-            $arParams['TELEGRAM'],
-            $arParams['TWITTER'],
-        ];
-
-        $this->select = array_filter(($select));
+        if (!empty($arParams['INSTAGRAM'])) {
+            $this->propsMap['INSTAGRAM'] = $arParams['INSTAGRAM'];
+        }
+        if (!empty($arParams['TELEGRAM'])) {
+            $this->propsMap['TELEGRAM'] = $arParams['TELEGRAM'];
+        }
+        if (!empty($arParams['TWITTER'])) {
+            $this->propsMap['TWITTER'] = $arParams['TWITTER'];
+        }
+        if (!empty($arParams['GITHUB'])) {
+            $this->propsMap['GITHUB'] = $arParams['GITHUB'];
+        }
     }
 
     public function executeComponent()
@@ -74,8 +79,8 @@ class A2cRbpIcons extends Basic
         if ($this->startResultCache(false)) {
             // данные
             $data = User::getProps((int) $arParams['USER_ID'], [
-                'FIELDS' => $this->fields,
-                'SELECT' => array_unique($this->select),
+                'FIELDS' => array_keys($this->fieldsMap),
+                'SELECT' => array_unique(array_filter(array_values($this->propsMap))),
             ]);
             // определим город
             if (!empty($data['PERSONAL_COUNTRY'])) {
@@ -92,11 +97,12 @@ class A2cRbpIcons extends Basic
     {
         $result = [];
         // берем только экранированные строки
-        $usedProps = array_merge($this->fields, $this->select);
-        foreach ($usedProps as $prop) {
+        $usedProps = array_merge($this->fieldsMap, $this->propsMap);
+        foreach ($usedProps as $key => $prop) {
             $safeProp = '~' . $prop;
             if (!empty($data[$safeProp])) {
-                $result[$safeProp] = $data[$safeProp];
+                $safeKey = '~' . $key;
+                $result[$safeKey] = $data[$safeProp];
             }
         }
 
