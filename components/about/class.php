@@ -35,7 +35,7 @@ class A2cRbpAbout extends Basic
         // кэш
         if ($this->startResultCache(false)) {
             // данные
-            $this->arResult = User::getProps((int) $arParams['USER_ID'], [
+            $data = User::getProps((int) $arParams['USER_ID'], [
                 'FIELDS' => [
                     'NAME',
                     'LAST_NAME',
@@ -56,6 +56,7 @@ class A2cRbpAbout extends Basic
             if (!empty($data['PERSONAL_PHOTO'])) {
                 $data['PERSONAL_PHOTO'] = $this->cropPicture($data['PERSONAL_PHOTO']);
             }
+            $this->arResult = $data;
             $this->setResultCacheKeys([]);
 
             $this->includeComponentTemplate();
