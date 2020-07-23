@@ -93,9 +93,13 @@ class A2cRbpIcons extends Basic
     {
         $result = [];
         $usedProps = array_merge($this->fields, $this->select);
+        // берем только экранированные строки
+        $usedProps = array_map(function ($elt) {
+            return '~' . $elt;
+        }, $usedProps);
 
         foreach ($data as $key => $item) {
-            if (in_array('~' . $key, $usedProps)) {  // берем только экранированные строки
+            if (in_array($key, $usedProps)) {
                 $result[$key] = $item;
             }
         }
