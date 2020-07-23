@@ -36,7 +36,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
             <a target="_blank" href="https://www.github.com/<?=$arResult['~GITHUB']?>"><i class="fab fa-github"></i></a>
         </li>
     <?php endif; ?>
-    <?php if (isset($arResult['~MOBILE'])): ?>
+    <?php if (isset($arResult['~TELEPHONE'])): ?>
         <li>
             <a target="_blank" href="tel:<?=$arResult['~MOBILE']?>"><i class="fas fa-phone"></i></a>
         </li>

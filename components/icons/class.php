@@ -44,7 +44,7 @@ class A2cRbpIcons extends Basic
             $this->fieldsMap['EMAIL'] = 'EMAIL';
         }
         if ($arParams['TELEPHONE'] === 'Y') {
-            $this->fieldsMap['MOBILE'] = 'PERSONAL_MOBILE';
+            $this->fieldsMap['TELEPHONE'] = 'PERSONAL_MOBILE';
         }
         if ($arParams['ADDRESS'] === 'Y') {
             $this->fieldsMap['COUNTRY'] = 'PERSONAL_COUNTRY';
