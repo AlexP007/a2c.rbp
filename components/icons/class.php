@@ -59,18 +59,18 @@ class A2cRbpIcons extends Basic
         $result = [];
         $arParams = $this->arParams;
 
-        foreach ($data as $item) {
-            switch ($item) {
-                case $arParams['EMAIL']:
+        foreach ($data as $key => $item) {
+            switch ($key) {
+                case 'EMAIL':
                     $result['EMAIL'] = $item;
                     break;
-                case $arParams['PERSONAL_MOBILE']:
+                case 'PERSONAL_MOBILE':
                     $result['PERSONAL_MOBILE'] = $item;
                     break;
-                case $arParams['PERSONAL_COUNTRY']:
+                case 'PERSONAL_COUNTRY':
                     $result['PERSONAL_COUNTRY'] = Tools::getUserCountry($item);
                     break;
-                case $arParams['PERSONAL_CITY']:
+                case 'PERSONAL_CITY':
                     $result['PERSONAL_CITY'] = $item;
                     break;
                 case $arParams['GITHUB']:
