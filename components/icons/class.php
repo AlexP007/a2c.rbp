@@ -37,32 +37,6 @@ class A2cRbpIcons extends Basic
         return parent::onPrepareComponentParams($arParams);
     }
 
-    public function executeComponent()
-    {
-        $arParams = $this->arParams;
-        if (empty($arParams['USER_ID']) ) {
-            ShowError('Не указан id пользователя');
-            return;
-        }
-        // кэш
-        if ($this->startResultCache(false)) {
-
-            // данные
-            $data = User::getProps((int) $arParams['USER_ID'], [
-                'FIELDS' => ['EMAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
-                'SELECT' => $this->select,
-            ]);
-            // определим город
-            if (!empty($data['PERSONAL_COUNTRY'])) {
-                $arParams['~PERSONAL_COUNTRY'] = Tools::getUserCountry($arParams['PERSONAL_COUNTRY']);
-            }
-            $this->arResult = $this->prepareResult($data);
-            $this->setResultCacheKeys([]);
-
-            $this->includeComponentTemplate();
-        }
-    }
-
     private function prepareFields(array $arParams)
     {
         if ($arParams['EMAIL'] === 'Y') {
@@ -87,6 +61,31 @@ class A2cRbpIcons extends Basic
         ];
 
         $this->select = array_values(array_filter(array_unique($select)));
+    }
+
+    public function executeComponent()
+    {
+        $arParams = $this->arParams;
+        if (empty($arParams['USER_ID']) ) {
+            ShowError('Не указан id пользователя');
+            return;
+        }
+        // кэш
+        if ($this->startResultCache(false)) {
+            // данные
+            $data = User::getProps((int) $arParams['USER_ID'], [
+                'FIELDS' => ['EMAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'],
+                'SELECT' => $this->select,
+            ]);
+            // определим город
+            if (!empty($data['PERSONAL_COUNTRY'])) {
+                $data['~PERSONAL_COUNTRY'] = Tools::getUserCountry($data['PERSONAL_COUNTRY']);
+            }
+            $this->arResult = $this->prepareResult($data);
+            $this->setResultCacheKeys([]);
+
+            $this->includeComponentTemplate();
+        }
     }
 
     private function prepareResult(array $data): array
