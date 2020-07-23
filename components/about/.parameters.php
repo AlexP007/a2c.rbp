@@ -31,6 +31,11 @@ $arComponentParameters = [
     ],
     "PARAMETERS" => [
         "CACHE_TIME"   => ["DEFAULT" => 36000000],
+        'HEADING' => [
+            'PARENT' => 'BASE',
+            'NAME' => Loc::getMessage('A2C_RBP_ABOUT_HEADING'),
+            'TYPE' => 'STRING',
+        ],
         'GROUP_ID'     => [
             'PARENT'  => 'DATA_SOURCE',
             'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_GROUP_ID'),
