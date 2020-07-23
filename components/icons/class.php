@@ -27,7 +27,7 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  */
 class A2cRbpIcons extends Basic
 {
-    private $fields = ['EMAIL', 'PERSONAL_MOBILE', 'PERSONAL_COUNTRY', 'PERSONAL_CITY'];
+    private $fields = [];
     private $select = [];
 
     public function onPrepareComponentParams($arParams)
