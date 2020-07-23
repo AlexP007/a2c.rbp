@@ -61,6 +61,11 @@ class A2cRbpAbout extends Basic
             if (!empty($data['PERSONAL_PHOTO'])) {
                 $data['PERSONAL_PHOTO'] = $this->cropPicture($data['PERSONAL_PHOTO']);
             }
+            // Посчитаем возраст
+            if (!empty($data['PERSONAL_BIRTHDAY'])) {
+                $year = ConvertDateTime($data['PERSONAL_BIRTHDAY'], 'YYYY');
+                $data['PERSONAL_AGE'] = date('Y') - $year;
+            }
             $this->arResult = $data;
             $this->setResultCacheKeys([]);
 
