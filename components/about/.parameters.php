@@ -44,10 +44,11 @@ $arComponentParameters = [
             'VALUES'  => Parameters::getGroups(),
             'REFRESH' => "Y",
         ],
-        'BUTTON_TEXT'  => [
-            'PARENT' => 'BUTTON',
-            'NAME'   => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_TEXT'),
-            'TYPE'   => 'STRING',
+        'BUTTON_TEXT' => [
+            'PARENT'  => 'BUTTON',
+            'NAME'    => Loc::getMessage('A2C_RBP_ABOUT_BUTTON_TEXT'),
+            'TYPE'    => 'STRING',
+            'DEFAULT' => 'Написать'
         ],
         'BUTTON_LINK'  => [
             'PARENT' => 'BUTTON',
