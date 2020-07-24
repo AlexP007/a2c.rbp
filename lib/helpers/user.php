@@ -18,6 +18,8 @@ use CUser;
  */
 class User
 {
+    private static $timestampsCache = [];
+
     public static function getUsersIdName(int $groupId): array
     {
         $by = 'id';
@@ -45,7 +47,14 @@ class User
 
     public static function getTimestamp(int $id): string
     {
+        if (self::$timestampsCache[$id]) {
+            return self::$timestampsCache[$id];
+        }
+
         $data = self::getProps($id, ['FIELDS' => 'TIMESTAMP_X']);
-        return $data['TIMESTAMP_X'];
+        $timestamp = $data['TIMESTAMP_X'];
+        self::$timestampsCache[$id] = $timestamp;
+
+        return $timestamp;
     }
 }
