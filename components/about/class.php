@@ -34,8 +34,9 @@ class A2cRbpAbout extends Basic
             ShowError('Не указан id пользователя');
             return;
         }
+        $userUpdated = User::getTimestamp($arParams['USER_ID']);
         // кэш
-        if ($this->startResultCache(false)) {
+        if ($this->startResultCache(false, $userUpdated)) {
             // данные
             $data = User::getProps((int) $arParams['USER_ID'], [
                 'FIELDS' => [

@@ -42,4 +42,10 @@ class User
 
         return $resultDb->GetNext();
     }
+
+    public static function getTimestamp(int $id): string
+    {
+        $data = self::getProps($id, ['FIELDS' => 'TIMESTAMP_X']);
+        return $data['TIMESTAMP_X'];
+    }
 }
