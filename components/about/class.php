@@ -65,9 +65,7 @@ class A2cRbpAbout extends Basic
             }
             // Посчитаем возраст
             if (!empty($data['PERSONAL_BIRTHDAY'])) {
-                $birthStamp = MakeTimeStamp($data['PERSONAL_BIRTHDAY']);
-                $year = (new DateTime())->diff($birthStamp);
-                $data['PERSONAL_AGE'] = $year->y;
+                $data['PERSONAL_AGE'] = Tools::getDateDiff($data['PERSONAL_BIRTHDAY'])->y;
             }
             $this->arResult = $data;
             $this->setResultCacheKeys([]);
