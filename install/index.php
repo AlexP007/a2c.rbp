@@ -23,6 +23,8 @@ Class A2C_RBP extends CModule
     const MIN_PHP_VERSION = '7.2';
     const D7_MAIN_MIN_VERSION = '20.00.00';
 
+    const MODULE_ASSETS_PATH = '/local/assets/a2c.rbp';
+
     /*
      * Определим всё что нужно битриксу
      */
@@ -67,6 +69,8 @@ Class A2C_RBP extends CModule
 
             // Установим компоненты
             $this->installComponentsLogic();
+            // Установим js и css
+            $this->installAssetsLogic();
 
         } catch (Exception $e) {
             ModuleManager::unRegisterModule($this->MODULE_ID);
@@ -85,6 +89,7 @@ Class A2C_RBP extends CModule
         global $APPLICATION;
 
         $this->unInstallComponents();
+        $this->unInstallAssets();
 
         ModuleManager::unRegisterModule($this->MODULE_ID);
         $APPLICATION->IncludeAdminFile(Loc::getMessage('A2C_RBP_INSTALL_UNSTEP_FINALE'), $this->getPath() . '/install/steps/unstep_final.php');
@@ -156,6 +161,44 @@ Class A2C_RBP extends CModule
                 'FROM' => $components,
                 'TO' => "$docRoot/local/components/$this->MODULE_ID"
             ]
+        ];
+    }
+
+    private function installAssetsLogic()
+    {
+        try {
+            $this->installAssets();
+        } catch (Exception $e) {
+            $this->unInstallAssets();
+            throw new Exception($e->getMessage() );
+        }
+    }
+
+    private function installAssets()
+    {
+        CheckDirPath(self::MODULE_ASSETS_PATH);
+
+        $path = $this->getAssetsPath();
+        if (!symlink($path['FROM'], $path['TO'])) {
+            throw new Exception(Loc::getMessage('A2C_RBP_LINK_PROBLEM', ['#LINK#' => $path['TO']]) );
+        }
+
+    }
+
+    private function unInstallAssets()
+    {
+        $path = $this->getAssetsPath();
+        File::deleteFile($path['TO']);
+    }
+
+    private function getAssetsPath()
+    {
+        $assets = $this->getPath() . '/assets';
+        $docRoot = Application::getDocumentRoot();
+
+        return [
+            'FROM' => $assets,
+            'TO' => "$docRoot/local/assets/$this->MODULE_ID"
         ];
     }
 
