@@ -66,11 +66,8 @@ Class A2C_RBP extends CModule
 
             // Подключим модуль
             Loader::includeModule($this->MODULE_ID);
-
-            // Установим компоненты
-            $this->installComponentsLogic();
-            // Установим js и css
-            $this->installAssetsLogic();
+            //  установим компоненты и зависимости
+            $this->installLogic();
 
         } catch (Exception $e) {
             ModuleManager::unRegisterModule($this->MODULE_ID);
@@ -121,12 +118,14 @@ Class A2C_RBP extends CModule
         $APPLICATION->IncludeAdminFile(Loc::getMessage('A2C_RBP_INSTALL_STEP_FINAL'), $this->getPath() . '/install/steps/step_final.php');
     }
 
-    private function installComponentsLogic()
+    private function installLogic()
     {
         try {
             $this->installComponents();
+            $this->installAssets();
         } catch (Exception $e) {
             $this->unInstallComponents();
+            $this->unInstallAssets();
             throw new Exception($e->getMessage() );
         }
     }
@@ -162,16 +161,6 @@ Class A2C_RBP extends CModule
                 'TO' => "$docRoot/local/components/$this->MODULE_ID"
             ]
         ];
-    }
-
-    private function installAssetsLogic()
-    {
-        try {
-            $this->installAssets();
-        } catch (Exception $e) {
-            $this->unInstallAssets();
-            throw new Exception($e->getMessage() );
-        }
     }
 
     private function installAssets()
