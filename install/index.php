@@ -176,7 +176,7 @@ Class A2C_RBP extends CModule
 
     private function installAssets()
     {
-        CheckDirPath(self::MODULE_ASSETS_PATH);
+        CheckDirPath(Application::getDocumentRoot() . self::MODULE_ASSETS_PATH);
 
         $path = $this->getAssetsPath();
         if (!symlink($path['FROM'], $path['TO'])) {
