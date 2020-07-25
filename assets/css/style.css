@@ -6,5 +6,5 @@
 }
 
 .rbp-animated-icon {
-    animation: animate-mouse-btn 1s infinite;
+    animation: rbp-animate-mouse-btn 1s infinite;
 }
