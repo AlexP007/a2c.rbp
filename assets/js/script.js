@@ -6,7 +6,7 @@
     if (scrollContainerSelector) {
         const scrollContainer = $(scrollContainerSelector);
         scrollContainer.on('scroll', () => {
-            if (main.scrollTop() > 20) {
+            if (scrollContainer.scrollTop() > 20) {
                 mouseBtn.fadeOut(200);
             } else {
                 mouseBtn.fadeIn(200);
