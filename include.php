@@ -9,3 +9,7 @@
  * @email alex.p.panteleev@gmail.com
  * @link https://github.com/AlexP007/a2c.rbp
  */
+
+use A2C\RBP\Helpers\Assets;
+
+Assets::registerJs();
