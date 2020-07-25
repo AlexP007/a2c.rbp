@@ -18,6 +18,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     href="<?=$arParams['LINK_TO']?>"
     class="<?=$arParams['LINK_CLASS']?>"
     data-type="<?=RBP_ANIMATED_ICON_TYPE?>"
+    data-selector="<?=$arParams['SCROLL_SELECTOR']?>"
 >
     <i class="<?=$arParams['ICON_CLASS']?>"></i>
 </a>
