@@ -18,18 +18,19 @@ use CUtil;
  */
 class Assets
 {
-    public static function registerJs()
+    public static function registerExt()
     {
         CJSCore::RegisterExt(
-            "rbp-js", [
-                "js" => "/local/assets/a2c.rbp/js/script.js",
+            "rbp-assets-pack", [
+                "js"  => "/local/assets/a2c.rbp/js/script.js",
+                "css" => "/local/assets/a2c.rbp/css/style.css",
                 "rel" => ['jquery'],
             ]
         );
     }
 
-    public static function initJs()
+    public static function initExt()
     {
-        CUtil::InitJSCore(['rbp-js']);
+        CUtil::InitJSCore(['rbp-assets-pack']);
     }
 }

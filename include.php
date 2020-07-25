@@ -12,4 +12,6 @@
 
 use A2C\RBP\Helpers\Assets;
 
-Assets::registerJs();
+Assets::registerExt();
+
+const RBP_ANIMATED_ICON_CLASS = 'rbp-animated-icon';

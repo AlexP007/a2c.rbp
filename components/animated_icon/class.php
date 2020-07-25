@@ -25,9 +25,19 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  */
 class A2cRbpAnimatedIcon extends Basic
 {
+    public function onPrepareComponentParams($arParams)
+    {
+        if (!empty($arParams['LINK_CLASS'])) {
+            $arParams['LINK_CLASS'] .=  " " . RBP_ANIMATED_ICON_CLASS;
+        } else {
+            $arParams['LINK_CLASS'] = RBP_ANIMATED_ICON_CLASS;
+        }
+        return parent::onPrepareComponentParams($arParams);
+    }
+
     public function executeComponent()
     {
-        Assets::initJs();
+        Assets::initExt();
         $this->includeComponentTemplate();
     }
 }
