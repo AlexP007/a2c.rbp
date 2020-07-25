@@ -25,7 +25,7 @@ $arComponentDescription = [
     "PATH" => [
         "ID" => 'A2C',
         "CHILD" => [
-            "ID" => 'resume_block_pack',
+            "ID" => 'resume_blog_pack',
             "NAME" => Loc::getMessage("A2C_RBP_COPYRIGHTS_GROUP_NAME"),
             "SORT" => 30,
         ],
