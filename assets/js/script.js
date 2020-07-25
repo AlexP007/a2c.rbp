@@ -2,9 +2,9 @@
 !(function(){
     const icon = $("a[href^='#'][data-type='rbp-animated-icon']");
     const scrollContainerSelector = icon.data('selector');
+    const scrollContainer = $(scrollContainerSelector);
     // icon fade out on scrolling
-    if (icon && scrollContainerSelector) {
-        const scrollContainer = $(scrollContainerSelector);
+    if (icon.length > 0 && scrollContainer.length > 0) {
         scrollContainer.on('scroll', () => {
             if (scrollContainer.scrollTop() > 20) {
                 icon.fadeOut(200);
@@ -13,7 +13,7 @@
             }
         });
         // smooth transition
-        icon.on("click", function (e) {
+        icon.on("click", function(e) {
             e.preventDefault();
             let hash = this.hash;
 
