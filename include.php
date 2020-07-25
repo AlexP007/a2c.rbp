@@ -15,3 +15,4 @@ use A2C\RBP\Helpers\Assets;
 Assets::registerExt();
 
 const RBP_ANIMATED_ICON_CLASS = 'rbp-animated-icon';
+const RBP_ANIMATED_ICON_TYPE = 'rbp-animated-icon';

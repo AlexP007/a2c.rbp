@@ -14,6 +14,10 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 ?>
-<a href="<?=$arParams['LINK_TO']?>" class="<?=$arParams['LINK_CLASS']?>">
+<a
+    href="<?=$arParams['LINK_TO']?>"
+    class="<?=$arParams['LINK_CLASS']?>"
+    data-type="<?=RBP_ANIMATED_ICON_TYPE?>"
+>
     <i class="<?=$arParams['ICON_CLASS']?>"></i>
 </a>

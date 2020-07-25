@@ -10,9 +10,10 @@
         }
     });
     // smooth transition
-    main.find("a[href^='#']").on("click", function(e) {
+    main.find("a[href^='#'][data-type='rbp-animated-icon']").on("click", function(e) {
         e.preventDefault();
         let hash = this.hash;
+
         main.stop().animate({
             scrollTop: $(hash).offset().top
         }, 777);
