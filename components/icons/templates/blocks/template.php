@@ -14,8 +14,18 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 ?>
-
 <ul <?= isset($arParams['CONTAINER_CLASS']) ? "class=${arParams['CONTAINER_CLASS']}" : '' ?>>
+    <?php if (isset($arResult['~TELEPHONE'])): ?>
+    <li>
+        <div><i class="fas fa-phone"></i></div>
+        <div>Телефон</div>
+        <p>
+            <a target="_blank" href="tel:<?=$arResult['~TELEPHONE']?>">
+                <?=$arResult['~TELEPHONE']?>
+            </a>
+        </p>
+    </li>
+    <?php endif; ?>
     <?php if (isset($arResult['~TELEGRAM'])): ?>
     <li>
         <div><i class="fab fa-telegram-plane"></i></div>
@@ -27,7 +37,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
         </p>
     </li>
     <?php endif; ?>
-    <?php if ($arParams['EMAIL'] === 'Y'): ?>
+    <?php if (isset($arResult['~EMAIL'])): ?>
         <li>
             <div><i class="fas fa-envelope"></i></div>
             <div>Почта</div>
@@ -38,14 +48,14 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
             </p>
         </li>
     <?php endif; ?>
-    <?php if ($arParams['ADDRESS'] === 'Y'): ?>
+    <?php if (isset($arResult['~COUNTRY'])): ?>
         <li>
             <div><i class="fas fa-map-marker-alt"></i></div>
             <div>Адрес</div>
             <p>
-                <?=$arResult['~PERSONAL_COUNTRY']?>
-                <?php if(!empty($arResult['~PERSONAL_CITY'])):?>
-                , г. <?=$arResult['~PERSONAL_CITY']?>
+                <?=$arResult['~COUNTRY']?>
+                <?php if(!empty($arResult['~CITY'])):?>
+                , г. <?=$arResult['~CITY']?>
                 <?php endif;?>
             </p>
         </li>
