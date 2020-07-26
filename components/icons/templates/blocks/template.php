@@ -53,10 +53,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
             <div><i class="fas fa-map-marker-alt"></i></div>
             <div>Адрес</div>
             <p>
-                <?=$arResult['~COUNTRY']?>
-                <?php if(!empty($arResult['~CITY'])):?>
-                , г. <?=$arResult['~CITY']?>
-                <?php endif;?>
+                <?=$arResult['~COUNTRY']?>, г.<?=$arResult['~CITY']?>
             </p>
         </li>
     <?php endif; ?>
