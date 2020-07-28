@@ -3,7 +3,7 @@ $(document).ready(function(){
     const icon = $("a[href^='#'][data-type='rbp-animated-icon']");
     const scrollContainerSelector = icon.data('selector');
     let usePosition = true;
-    if (scrollContainerSelector.incluedes('body') || scrollContainerSelector.incluedes('html')) {
+    if (scrollContainerSelector.includes('body') || scrollContainerSelector.includes('html')) {
         usePosition = false;
     }
     const scrollContainer = $(scrollContainerSelector);
@@ -27,4 +27,4 @@ $(document).ready(function(){
             return false;
         });
     }
-})();
+});
