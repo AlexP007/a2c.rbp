@@ -39,5 +39,10 @@ $arComponentParameters = [
             'NAME'    =>  Loc::getMessage('A2C_RBP_ANIMATED_ICON_SCROLL_SELECTOR'),
             'TYPE'    => 'STRING',
         ],
+        'SCROLL_PIXELS_FADE'   => [
+            'PARENT'  => 'BASE',
+            'NAME'    =>  Loc::getMessage('A2C_RBP_ANIMATED_ICON_SCROLL_PIXELS_FADE'),
+            'TYPE'    => 'STRING',
+        ],
     ]
 ];

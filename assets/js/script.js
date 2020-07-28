@@ -2,15 +2,16 @@
 $(document).ready(function(){
     const icon = $("a[href^='#'][data-type='rbp-animated-icon']");
     const scrollContainerSelector = icon.data('selector');
+    const scrollToFade = icon.data('scroll');
     let usePosition = true;
     if (scrollContainerSelector.includes('body') || scrollContainerSelector.includes('html')) {
         usePosition = false;
     }
     const scrollContainer = $(scrollContainerSelector);
     // icon fade out on scrolling
-    if (icon.length > 0 && scrollContainer.length > 0) {
+    if (icon.length > 0 && scrollContainer.length > 0 && scrollToFade !== undefined) {
         scrollContainer.on('scroll', () => {
-            if (scrollContainer.scrollTop() > 20) {
+            if (scrollContainer.scrollTop() > scrollToFade) {
                 icon.fadeOut(200);
             } else {
                 icon.fadeIn(200);
