@@ -9,14 +9,16 @@ $(document).ready(function(){
     }
     const scrollContainer = $(scrollContainerSelector);
     // icon fade out on scrolling
-    if (icon.length > 0 && scrollContainer.length > 0 && scrollToFade !== undefined) {
-        scrollContainer.on('scroll', () => {
-            if (scrollContainer.scrollTop() > scrollToFade) {
-                icon.fadeOut(200);
-            } else {
-                icon.fadeIn(200);
-            }
-        });
+    if (icon.length > 0 && scrollContainer.length > 0) {
+        if (scrollToFade !== undefined) {
+            scrollContainer.on('scroll', () => {
+                if (scrollContainer.scrollTop() > scrollToFade) {
+                    icon.fadeOut(200);
+                } else {
+                    icon.fadeIn(200);
+                }
+            });
+        }
         // smooth transition
         icon.on("click", function(e) {
             e.preventDefault();
