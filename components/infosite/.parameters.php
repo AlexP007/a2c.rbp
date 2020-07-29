@@ -15,7 +15,12 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 
+use Bitrix\Main\Loader;
 use Bitrix\Main\Localization\Loc;
+
+use A2C\RBP\Helpers\{Parameters, Tools};
+
+Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
     "PARAMETERS" => [
