@@ -18,7 +18,7 @@ use CFile;
  * @email alex.p.panteleev@gmail.com
  * @link https://github.com/AlexP007/a2c.rbp
  */
-class Basic extends CBitrixComponent
+abstract class Basic extends CBitrixComponent
 {
     public function onPrepareComponentParams($arParams)
     {
