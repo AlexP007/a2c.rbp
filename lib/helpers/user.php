@@ -25,7 +25,7 @@ class User
         $by = 'id';
         $order = 'desc';
         $resultDb = CUser::GetList($by, $order,
-            ['GROUPS_ID' => [$groupId]],
+            ['GROUPS_ID' => [$groupId], 'ACTIVE' => 'Y'],
             ['FIELDS' => ["ID", "LOGIN"]]
         );
         $result = [];
