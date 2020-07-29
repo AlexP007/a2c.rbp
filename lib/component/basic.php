@@ -11,6 +11,7 @@ use CFile;
 /**
  * Class Basic
  * @package A2C\RBP\Component
+ *
  * @license MIT
  *
  * @author AlexP007
