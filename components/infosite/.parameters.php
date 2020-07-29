@@ -27,7 +27,7 @@ $arComponentParameters = [
         "SEF_MODE" => [
             "iblock" => [
                 "NAME" => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_IBLOCK"),
-                "DEFAULT" => "",
+                "DEFAULT" => "index.php",
                 "VARIABLES" => []
             ],
             "section" => [
