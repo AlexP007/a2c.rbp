@@ -14,7 +14,7 @@
 // VARIABLE ALIASES
 $MESS['A2C_RBP_INFOSITE_VARIABLE_ALIASES_IBLOCK_ID'] = 'Идентификатор инфоблока';
 $MESS['A2C_RBP_INFOSITE_VARIABLE_ALIASES_SECTION_ID'] = 'Идентификатор раздела';
-$MESS['A2C_RBP_INFOSITE_VARIABLE_ALIASES_SECTION_ID'] = 'Идентификатор раздела';
+$MESS['A2C_RBP_INFOSITE_VARIABLE_ALIASES_ELEMENT_ID'] = 'Идентификатор элемента';
 
 // SEF MODE
 $MESS['A2C_RBP_INFOSITE_SEF_MODE_IBLOCK'] = 'Разводящая по инфоблокам';

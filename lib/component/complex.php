@@ -37,7 +37,7 @@ abstract class Complex extends Basic
         $arUrlTemplates = [];
         $arVariables = [];
         $arVariableAliases = [];
-        $componentPage = '';
+        $componentPage = 'iblock';
 
         if ($arParams['SEF_MODE'] == 'Y') {
             $arUrlTemplates = CComponentEngine::MakeComponentUrlTemplates(
@@ -50,14 +50,12 @@ abstract class Complex extends Basic
                 $arParams['VARIABLE_ALIASES']
             );
 
-            $componentPage = CComponentEngine::ParseComponentPath(
+            if ($page = CComponentEngine::ParseComponentPath(
                 $arParams['SEF_FOLDER'],
                 $arUrlTemplates,
                 $arVariables
-            );
-
-            if (strlen($componentPage) <= 0) {
-                $componentPage = 'iblock';
+            )) {
+                $componentPage = $page;
             }
 
             CComponentEngine::InitComponentVariables(

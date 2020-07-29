@@ -64,7 +64,7 @@ class A2cRbpInfosite extends Complex
             'ALIASES' => $componentVariables['VARIABLE_ALIASES'],
         ];
 
-        $this->IncludeComponentTemplate($componentVariables['PAGE']);
+        $this->IncludeComponentTemplate($this->arResult['PAGE']);
 
     }
 }
