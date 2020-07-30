@@ -53,6 +53,16 @@ class A2cRbpInfosite extends Complex
         ];
     }
 
+    protected function defaultComponentPage(): string
+    {
+        return 'iblock';
+    }
+
+    protected function defineComponentPage(array $arVariables): string
+    {
+        return intval($arVariables['ELEMENT_ID']) > 0 ? 'detail' : 'section';
+    }
+
     public function executeComponent()
     {
         $componentVariables = $this->InitComponentVariables();
@@ -64,7 +74,8 @@ class A2cRbpInfosite extends Complex
             'ALIASES' => $componentVariables['VARIABLE_ALIASES'],
         ];
 
-        $this->IncludeComponentTemplate($this->arResult['PAGE']);
+        $this->IncludeComponentTemplate($componentVariables['PAGE']);
 
     }
 }
+

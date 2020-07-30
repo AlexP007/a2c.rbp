@@ -22,9 +22,21 @@ abstract class Complex extends Basic
 
     abstract protected function arComponentVariables(): array;
 
+    abstract protected function defaultComponentPage(): string;
+
+    /**
+     * Для НЕ чпу режима
+     * Метод на основании http переменных должен
+     * определить и вернуть название шаблона страницы
+     *
+     * @param array $arVariables
+     * @return string
+     */
+    abstract protected function defineComponentPage(array $arVariables): string;
+
     protected function InitComponentVariables(): array
     {
-
+        $componentPage = $this->defaultComponentPage();
         $arParams = $this->arParams;
 
         $arDefaultUrlTemplates404 = $this->arDefaultUrlTemplates404();
@@ -36,8 +48,6 @@ abstract class Complex extends Basic
         $SEF_FOLDER = '';
         $arUrlTemplates = [];
         $arVariables = [];
-        $arVariableAliases = [];
-        $componentPage = 'iblock';
 
         if ($arParams['SEF_MODE'] == 'Y') {
             $arUrlTemplates = CComponentEngine::MakeComponentUrlTemplates(
@@ -50,6 +60,7 @@ abstract class Complex extends Basic
                 $arParams['VARIABLE_ALIASES']
             );
 
+            // если определили страницу, то поменяем дефолтное значение
             if ($page = CComponentEngine::ParseComponentPath(
                 $arParams['SEF_FOLDER'],
                 $arUrlTemplates,
@@ -78,11 +89,7 @@ abstract class Complex extends Basic
                 $arVariables
             );
 
-            if (intval($arVariables['ELEMENT_ID']) > 0) {
-                $componentPage = 'detail';
-            } else {
-                $componentPage = 'section';
-            }
+            $componentPage = $this->defineComponentPage($arVariables);
         }
 
         return [
