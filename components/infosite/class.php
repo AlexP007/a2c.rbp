@@ -36,6 +36,8 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  */
 class A2cRbpInfosite extends Complex
 {
+    const DEFAULT_PAGE = 'iblock';
+
     protected function arDefaultUrlTemplates404(): array
     {
         return [
@@ -53,14 +55,20 @@ class A2cRbpInfosite extends Complex
         ];
     }
 
-    protected function defaultComponentPage(): string
+    protected function defaultComponentPage404(): string
     {
-        return 'iblock';
+        return self::DEFAULT_PAGE;
     }
 
     protected function defineComponentPage(array $arVariables): string
     {
-        return intval($arVariables['ELEMENT_ID']) > 0 ? 'detail' : 'section';
+        if (intval($arVariables['ELEMENT_ID']) > 0) {
+            return 'detail';
+        }
+        if (intval($arVariables['SECTION_ID']) > 0 ) {
+            return 'section';
+        }
+        return self::DEFAULT_PAGE;
     }
 
     public function executeComponent()
@@ -75,7 +83,5 @@ class A2cRbpInfosite extends Complex
         ];
 
         $this->IncludeComponentTemplate($componentVariables['PAGE']);
-
     }
 }
-

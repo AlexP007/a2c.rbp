@@ -22,7 +22,7 @@ abstract class Complex extends Basic
 
     abstract protected function arComponentVariables(): array;
 
-    abstract protected function defaultComponentPage(): string;
+    abstract protected function defaultComponentPage404(): string;
 
     /**
      * Для НЕ чпу режима
@@ -36,7 +36,6 @@ abstract class Complex extends Basic
 
     protected function InitComponentVariables(): array
     {
-        $componentPage = $this->defaultComponentPage();
         $arParams = $this->arParams;
 
         $arDefaultUrlTemplates404 = $this->arDefaultUrlTemplates404();
@@ -59,6 +58,8 @@ abstract class Complex extends Basic
                 $arDefaultVariableAliases404,
                 $arParams['VARIABLE_ALIASES']
             );
+
+            $componentPage = $this->defaultComponentPage404();
 
             // если определили страницу, то поменяем дефолтное значение
             if ($page = CComponentEngine::ParseComponentPath(
