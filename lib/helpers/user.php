@@ -40,7 +40,7 @@ class User
     {
         $by = 'id';
         $order = 'desc';
-        $resultDb =  CUser::GetList($by, $order, ['ID' => $id], $filterProps);
+        $resultDb =  CUser::GetList($by, $order, ['=ID' => $id], $filterProps);
 
         return $resultDb->GetNext();
     }

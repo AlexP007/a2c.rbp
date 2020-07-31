@@ -23,6 +23,7 @@ use Bitrix\Main\Loader,
 class Iblock
 {
     const MODULE_ID = 'iblock';
+    const FILTER_ACTIVE = ['=ACTIVE' => 'Y'];
 
     /**
      * Возвращает массив свойств инфоблока
@@ -38,11 +39,11 @@ class Iblock
     {
         self::includeModule();
 
-        $filter = array_merge($filter, ['ACTIVE' => 'Y']);
+        $filter = array_merge($filter, self::FILTER_ACTIVE);
         return PropertyTable::getList([
             'select' => ['ID', 'NAME'],
             'filter' => $filter,
-            'order'   => ['NAME' => 'asc'],
+            'order'  => ['NAME' => 'asc'],
         ])->fetchAll();
     }
 
@@ -83,8 +84,8 @@ class Iblock
 
         return IblockTable::getList([
             'select' => ['ID', 'NAME'],
-            'filter' => ['ACTIVE' => 'Y'],
-            'order'   => ['NAME' => 'asc'],
+            'filter' => self::FILTER_ACTIVE,
+            'order'  => ['NAME' => 'asc'],
         ])->fetchAll();
     }
 
