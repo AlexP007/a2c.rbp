@@ -41,9 +41,9 @@ class A2cRbpInfosite extends Complex
     protected function arDefaultUrlTemplates404(): array
     {
         return [
-            'iblock' => '',
+            'iblock'  => '',
             'section' => '#SECTION_ID#',
-            'detail' => '#SECTION_ID#/#ELEMENT_ID#/',
+            'detail'  => '#SECTION_ID#/#ELEMENT_ID#/',
         ];
     }
 
@@ -76,10 +76,10 @@ class A2cRbpInfosite extends Complex
         $componentVariables = $this->InitComponentVariables();
 
         $this->arResult = [
-            'FOLDER' => $componentVariables['SEF_FOLDER'],
+            'FOLDER'        => $componentVariables['SEF_FOLDER'],
             'URL_TEMPLATES' => $componentVariables['TEMPLATES'],
-            'VARIABLES' => $componentVariables['VARIABLES'],
-            'ALIASES' => $componentVariables['VARIABLE_ALIASES'],
+            'VARIABLES'     => $componentVariables['VARIABLES'],
+            'ALIASES'       => $componentVariables['VARIABLE_ALIASES'],
         ];
 
         $this->IncludeComponentTemplate($componentVariables['PAGE']);
