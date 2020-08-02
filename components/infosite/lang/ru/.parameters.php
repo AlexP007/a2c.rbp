@@ -23,4 +23,10 @@ $MESS['A2C_RBP_INFOSITE_SEF_MODE_DETAIL'] = 'Детальная страница
 
 // PARAMETERS
 $MESS['A2C_RBP_INFOSITE_IBLOCK_TYPE'] = 'Тип инфоблока';
+$MESS['A2C_RBP_INFOSITE_USE_SECTION_USER_FIELDS'] = 'Использовать пользователские поля секций';
+$MESS['A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'] = 'Использоваться свойства элементов';
+
+// TOOLTIP
+$MESS['USE_SECTION_USER_FIELDS_TIP'] = 'При выборке, будет сделан запрос за всеми пользовательскими полями';
+$MESS['USE_ELEMENT_PROPERTIES_TIP'] = 'При выборке, будет сделан запрос за всеми свойствами';
 ?>
