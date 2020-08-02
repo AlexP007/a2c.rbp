@@ -53,13 +53,13 @@ $arComponentParameters = [
             "VALUES" => Parameters::getIBlocks(),
         ],
         'USE_SECTION_USER_FIELDS' => [
-            "PARENT"  => "ADITTIONAL_SETTINGS",
+            "PARENT"  => "ADDITIONAL_SETTINGS",
             "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_SECTION_USER_FIELDS'),
             "TYPE"    => "CHECKBOX",
             "DEFAULT" => "N"
         ],
         'USE_ELEMENT_PROPERTIES' => [
-            "PARENT"  => "ADITTIONAL_SETTINGS",
+            "PARENT"  => "ADDITIONAL_SETTINGS",
             "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'),
             "TYPE"    => "CHECKBOX",
             "DEFAULT" => "N"

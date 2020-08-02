@@ -23,6 +23,7 @@ use Bitrix\Main\Loader,
 class Iblock
 {
     const MODULE_ID = 'iblock';
+    const MODULE_ERROR = 'could\'t load iblock module';
     const FILTER_ACTIVE = ['=ACTIVE' => 'Y'];
 
     /**
@@ -115,8 +116,8 @@ class Iblock
      *
      * @throws \Bitrix\Main\LoaderException
      */
-    private static function includeModule()
+    public static function includeModule()
     {
-        Loader::includeModule(self::MODULE_ID) or Tools::showModuleError(self::MODULE_ID);
+        Loader::includeModule(self::MODULE_ID) or Tools::showModuleError(self::MODULE_ERROR);
     }
 }

@@ -5,10 +5,10 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 }
 
 use Bitrix\Main\Loader;
-use Bitrix\Main\IblockTable;
+use Bitrix\Iblock\IblockTable;
 
 use A2C\RBP\Component\Basic;
-use A2C\RBP\Helpers\Tools;
+use A2C\RBP\Helpers\{Iblock, Tools};
 
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
@@ -33,6 +33,8 @@ class A2cRbpInfositeIblock extends Basic
 
     public function executeComponent()
     {
+        Iblock::includeModule();
+
         if ($this->startResultCache(false)) {
             $iblockTypeId = (int) $this->arParams['IBLOCK_TYPE_ID'];
             $iblocks = IblockTable::getList([
