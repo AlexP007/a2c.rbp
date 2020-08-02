@@ -12,5 +12,5 @@
  */
 
 // PARAMETERS
-$MESS['A2C_RBP_INFOSITE_IBLOCK_IBLOCK_TYPE'] = 'Тип инфоблока';
+$MESS['A2C_RBP_INFOSITE_IBLOCK_IBLOCK_TYPE_ID'] = 'Тип инфоблока';
 ?>

@@ -22,7 +22,7 @@ $MESS['A2C_RBP_INFOSITE_SEF_MODE_SECTION'] = 'Разводящая по секц
 $MESS['A2C_RBP_INFOSITE_SEF_MODE_DETAIL'] = 'Детальная страница';
 
 // PARAMETERS
-$MESS['A2C_RBP_INFOSITE_IBLOCK_TYPE'] = 'Тип инфоблока';
+$MESS['A2C_RBP_INFOSITE_IBLOCK_TYPE_ID'] = 'Тип инфоблока';
 $MESS['A2C_RBP_INFOSITE_USE_SECTION_USER_FIELDS'] = 'Использовать пользователские поля секций';
 $MESS['A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'] = 'Использоваться свойства элементов';
 

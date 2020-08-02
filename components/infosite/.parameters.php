@@ -46,9 +46,9 @@ $arComponentParameters = [
                 "VARIABLES" => ["SECTION_ID", "ELEMENT_ID"],
             ],
         ],
-        "IBLOCK_TYPE" => [
+        "IBLOCK_TYPE_ID" => [
             "PARENT" => "DATA_SOURCE",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCK_TYPE"),
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCK_TYPE_ID"),
             "TYPE"   => "LIST",
             "VALUES" => Parameters::getIBlocks(),
         ],

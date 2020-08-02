@@ -24,7 +24,7 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
     "PARAMETERS" => [
-        "IBLOCK_TYPE" => [
+        "IBLOCK_TYPE_ID" => [
             "PARENT" => "DATA_SOURCE",
             "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCK_IBLOCK_TYPE"),
             "TYPE" => "STRING",

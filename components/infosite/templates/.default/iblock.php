@@ -8,6 +8,6 @@ $APPLICATION->IncludeComponent(
     "a2c.rbp:infosite.iblock",
     "",
     Array(
-        "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+        "IBLOCK_TYPE_ID" => $arParams["IBLOCK_TYPE_ID"],
     )
 );
