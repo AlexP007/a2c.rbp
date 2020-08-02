@@ -6,6 +6,7 @@ namespace A2C\RBP\Component;
 
 use CBitrixComponent;
 use CFile;
+use CMain;
 
 
 /**
@@ -20,22 +21,36 @@ use CFile;
  */
 abstract class Basic extends CBitrixComponent
 {
+    /**
+     * @var CMain
+     */
+    protected $application;
+
     public function onPrepareComponentParams($arParams)
     {
+        global $APPLICATION;
+        $this->application = $APPLICATION;
         return parent::onPrepareComponentParams($arParams);
+    }
+
+    public function set404()
+    {
+        $this->application->IncludeFile('/404.php');
+        die();
     }
 
     protected function cropPicture($id)
     {
         $width = $this->arParams['IMAGE_WIDTH'] > 0
-            ? $this->arParams['IMAGE_WIDTH'] : 100;
+            ? $this->arParams['IMAGE_WIDTH']
+            : 100;
 
         $height = $this->arParams['IMAGE_WIDTH'] > 0
-            ? $this->arParams['IMAGE_HEIGHT'] : 100;
+            ? $this->arParams['IMAGE_HEIGHT']
+            : 100;
 
         return CFile::ResizeImageGet(
-            $id,
-            [
+            $id, [
                 'width' => $width,
                 'height' => $height,
             ],
