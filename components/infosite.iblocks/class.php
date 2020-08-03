@@ -36,12 +36,13 @@ class A2cRbpInfositeIblock extends Basic
         Iblock::includeModule();
 
         if ($this->startResultCache(false)) {
-            $iblocksDb = CIBlock::GetList(
+            $iblocksResult = CIBlock::GetList(
                 ['SORT' => 'ASC'],
-                ['=ACTIVE' => 'Y', 'TYPE' => (int) $this->arParams['IBLOCK_TYPE_ID']]
+                ['=ACTIVE' => 'Y', 'TYPE' => $this->arParams['IBLOCK_TYPE_ID']]
             );
             $iblocks = [];
-            while ($i = $iblocksDb->GetNext()) {
+            while ($i = $iblocksResult->GetNext()) {
+                Iblock::replaceListUrl($i);
                 $iblocks[] = $i;
             }
             if (empty($iblocks)) {

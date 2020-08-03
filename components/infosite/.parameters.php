@@ -89,12 +89,12 @@ $arComponentParameters = [
         ],
         "IBLOCKS_IMAGE_HEIGHT" => [
             "PARENT" => "IBLOCKS",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBCLOCKS_IMAGE_HEIGHT"),
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_HEIGHT"),
             "TYPE"   => "STRING",
         ],
         "IBLOCKS_IMAGE_WIDTH"  => [
             "PARENT" => "IBLOCKS",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBCLOCKS_IMAGE_WIDTH"),
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
         "SECTIONS_IMAGE_HEIGHT" => [

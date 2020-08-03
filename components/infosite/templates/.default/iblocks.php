@@ -11,5 +11,6 @@ $APPLICATION->IncludeComponent(
         "IBLOCK_TYPE_ID" => $arParams["IBLOCK_TYPE_ID"],
         "IMAGE_HEIGHT" => $arParams["IBLOCKS_IMAGE_HEIGHT"],
         "IMAGE_WIDTH" => $arParams["IBLOCKS_IMAGE_WIDTH"],
-    )
+    ),
+    $component
 );

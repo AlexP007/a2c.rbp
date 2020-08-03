@@ -110,6 +110,17 @@ class Iblock
         ])->fetchAll();
     }
 
+    public static function replaceListUrl(array &$iblock)
+    {
+        $url = str_replace('#SITE_DIR#', '', $iblock['LIST_PAGE_URL']);
+        $search = array_map(function ($elt) {
+            return "#IBLOCK_$elt#";
+        }, array_keys($iblock));
+        $replace = array_values($iblock);
+        $url = str_replace($search, $replace, $url);
+        $iblock['LIST_PAGE_URL'] = $url;
+    }
+
     /**
      * Подключает модуль инфоблоков
      * или показывает ошибку

@@ -26,9 +26,10 @@ class Parameters
         $resultDb = CIBlockType::GetList();
         $iblockTypes = [];
         while ($i = $resultDb->GetNext()) {
-            $iblockTypes[] = [$i['ID'], $i['ID']];
+            $iblockTypes[] = ['ID' => $i['ID'], 'NAME' => $i['ID']];
         }
         self::setPrompt($iblockTypes, 'Выберите тип инфоблока');
+        return array_column($iblockTypes, 'NAME', 'ID');
     }
 
     /**
