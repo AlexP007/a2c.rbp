@@ -23,6 +23,24 @@ use A2C\RBP\Helpers\{Parameters, Tools};
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
+    'GROUPS' => [
+        'IBLOCKS' => [
+            'NAME' => Loc::getMessage('A2C_RBP_INFOSITE_GROUP_IBLOCKS'),
+            'SORT' => 450,
+        ],
+        'SECTIONS' => [
+            'NAME' => Loc::getMessage('A2C_RBP_INFOSITE_GROUP_SECTIONS'),
+            'SORT' => 460,
+        ],
+        'ELEMENTS' => [
+            'NAME' => Loc::getMessage('A2C_RBP_INFOSITE_GROUP_SECTIONS'),
+            'SORT' => 460,
+        ],
+        'DETAIL' => [
+            'NAME' => Loc::getMessage('A2C_RBP_INFOSITE_GROUP_DETAIL'),
+            'SORT' => 470,
+        ],
+    ],
     "PARAMETERS" => [
         "VARIABLE_ALIASES" => [
             "IBLOCK_ID"  => ["NAME" => Loc::getMessage("A2C_RBP_INFOSITE_VARIABLE_ALIASES_IBLOCK_ID")],
@@ -30,39 +48,64 @@ $arComponentParameters = [
             "ELEMENT_ID" => ["NAME" => Loc::GetMessage("A2C_RBP_INFOSITE_VARIABLE_ALIASES_ELEMENT_ID")],
         ],
         "SEF_MODE" => [
-            "iblock"  => [
-                "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_IBLOCK"),
+            "iblocks"  => [
+                "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_IBLOCKS"),
                 "DEFAULT"   => "index.php",
                 "VARIABLES" => []
             ],
-            "section" => [
-                "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_SECTION"),
-                "DEFAULT"   => "#SECTION_ID#",
-                "VARIABLES" => ["SECTION_ID"],
+            "sections" => [
+                "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_SECTIONS"),
+                "DEFAULT"   => "#IBLOCK_ID#",
+                "VARIABLES" => ["IBLOCK_ID"],
+            ],
+            "elements" => [
+                "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_ELEMENTS"),
+                "DEFAULT"   => "#IBLOCK_ID#/#SECTION_ID#",
+                "VARIABLES" => ["IBCLOCK_ID", "SECTION_ID"],
             ],
             "detail"  => [
                 "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_DETAIL"),
                 "DEFAULT"   => "#SECTION_ID#/#ELEMENT_ID#/",
-                "VARIABLES" => ["SECTION_ID", "ELEMENT_ID"],
+                "VARIABLES" => ["IBCLOCK_ID", "SECTION_ID", "ELEMENT_ID"],
             ],
         ],
         "IBLOCK_TYPE_ID" => [
             "PARENT" => "DATA_SOURCE",
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCK_TYPE_ID"),
             "TYPE"   => "LIST",
-            "VALUES" => Parameters::getIBlocks(),
+            "VALUES" => Parameters::getIblockTypes(),
         ],
         'USE_SECTION_USER_FIELDS' => [
-            "PARENT"  => "ADDITIONAL_SETTINGS",
+            "PARENT"  => "SECTIONS",
             "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_SECTION_USER_FIELDS'),
             "TYPE"    => "CHECKBOX",
             "DEFAULT" => "N"
         ],
         'USE_ELEMENT_PROPERTIES' => [
-            "PARENT"  => "ADDITIONAL_SETTINGS",
+            "PARENT"  => "DETAIL",
             "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'),
             "TYPE"    => "CHECKBOX",
             "DEFAULT" => "N"
+        ],
+        "IBLOCKS_IMAGE_HEIGHT" => [
+            "PARENT" => "IBLOCKS",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBCLOCKS_IMAGE_HEIGHT"),
+            "TYPE"   => "STRING",
+        ],
+        "IBLOCKS_IMAGE_WIDTH"  => [
+            "PARENT" => "IBLOCKS",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBCLOCKS_IMAGE_WIDTH"),
+            "TYPE"   => "STRING",
+        ],
+        "SECTIONS_IMAGE_HEIGHT" => [
+            "PARENT" => "SECTIONS",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_HEIGHT"),
+            "TYPE"   => "STRING",
+        ],
+        "SECTIONS_IMAGE_WIDTH"  => [
+            "PARENT" => "SECTIONS",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_WIDTH"),
+            "TYPE"   => "STRING",
         ],
     ]
 ];

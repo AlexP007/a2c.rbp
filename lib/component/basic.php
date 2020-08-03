@@ -33,7 +33,7 @@ abstract class Basic extends CBitrixComponent
         return parent::onPrepareComponentParams($arParams);
     }
 
-    public function set404()
+    protected function set404()
     {
         $this->application->IncludeFile('/404.php');
         die();

@@ -18,8 +18,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 use Bitrix\Main\Localization\Loc;
 
 $arComponentDescription = [
-    "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCK_COMPONENT_NAME"),
-    "DESCRIPTION" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCK_COMPONENT_DESCRIPTION"),
+    "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_COMPONENT_NAME"),
+    "DESCRIPTION" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_COMPONENT_DESCRIPTION"),
     "SORT" => 3,
     "CACHE_PATH" => "Y",
     "COMPLEX" => "N",
@@ -27,7 +27,7 @@ $arComponentDescription = [
         "ID" => 'A2C',
         "CHILD" => [
             "ID" => 'resume_blog_pack',
-            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCK_MODULE_NAME"),
+            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_MODULE_NAME"),
             "SORT" => 30,
         ],
     ],

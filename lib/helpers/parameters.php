@@ -4,6 +4,8 @@
 namespace A2C\RBP\Helpers;
 
 
+use \CIBlockType;
+
 /**
  * Класс упрощающий работу с созданием
  * файла .parameters.php
@@ -18,6 +20,17 @@ namespace A2C\RBP\Helpers;
  */
 class Parameters
 {
+    public static function getIblockTypes()
+    {
+        Iblock::includeModule();
+        $resultDb = CIBlockType::GetList();
+        $iblockTypes = [];
+        while ($i = $resultDb->GetNext()) {
+            $iblockTypes[] = [$i['ID'], $i['ID']];
+        }
+        self::setPrompt($iblockTypes, 'Выберите тип инфоблока');
+    }
+
     /**
      * Возвращает список инфоблоков
      *

@@ -5,7 +5,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 }
 
 use Bitrix\Main\Loader;
-use Bitrix\Iblock\IblockTable;
+use CIBlock;
 
 use A2C\RBP\Component\Basic;
 use A2C\RBP\Helpers\{Iblock, Tools};
@@ -36,14 +36,23 @@ class A2cRbpInfositeIblock extends Basic
         Iblock::includeModule();
 
         if ($this->startResultCache(false)) {
-            $iblockTypeId = (int) $this->arParams['IBLOCK_TYPE_ID'];
-            $iblocks = IblockTable::getList([
-                'filter' => ['=ID' => $iblockTypeId]
-            ])->fetchAll();
+            $iblocksDb = CIBlock::GetList(
+                ['SORT' => 'ASC'],
+                ['=ACTIVE' => 'Y', 'TYPE' => (int) $this->arParams['IBLOCK_TYPE_ID']]
+            );
+            $iblocks = [];
+            while ($i = $iblocksDb->GetNext()) {
+                $iblocks[] = $i;
+            }
             if (empty($iblocks)) {
                 $this->abortResultCache();
                 $this->set404();
             }
+
+            foreach ($iblocks as &$i) {
+                $i['PICTURE'] = $this->cropPicture($i['PICTURE']);
+            }
+
             $this->arResult['IBLOCKS'] = $iblocks;
             $this->includeComponentTemplate();
         }

@@ -26,20 +26,22 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  */
 class A2cRbpInfosite extends Complex
 {
-    const DEFAULT_PAGE = 'iblock';
+    const DEFAULT_PAGE = 'iblocks';
 
     protected function arDefaultUrlTemplates404(): array
     {
         return [
-            'iblock'  => '',
-            'section' => '#SECTION_ID#',
-            'detail'  => '#SECTION_ID#/#ELEMENT_ID#/',
+            'iblocks'  => '',
+            'sections' => '#IBLOCK_ID#',
+            'elements' => '#IBLOCK_ID#/#SECTION_ID#',
+            'detail'   => '#IBLOCK_ID#/#SECTION_ID#/#ELEMENT_ID#/',
         ];
     }
 
     protected function arComponentVariables(): array
     {
         return [
+            'IBLOCK_ID',
             'SECTION_ID',
             'ELEMENT_ID',
         ];
@@ -56,7 +58,10 @@ class A2cRbpInfosite extends Complex
             return 'detail';
         }
         if (intval($arVariables['SECTION_ID']) > 0 ) {
-            return 'section';
+            return 'elements';
+        }
+        if (intval($arVariables['IBCLOCK_ID']) > 0) {
+            return 'sections';
         }
         return self::DEFAULT_PAGE;
     }
@@ -72,6 +77,20 @@ class A2cRbpInfosite extends Complex
             'ALIASES'       => $componentVariables['VARIABLE_ALIASES'],
         ];
 
+        $this->setLinks();
+
         $this->IncludeComponentTemplate($componentVariables['PAGE']);
+    }
+
+    private function setLinks()
+    {
+        $arParams = $this->arParams;
+        $arResult = $this->arResult;
+
+        if (arParams['SEF_MODE'] == 'Y') {
+
+        } else {
+            $sections = "{$arResult['ALIASES']['IBLOCK_ID']}=#IBLOCK_ID#";
+        }
     }
 }
