@@ -54,6 +54,10 @@ class A2cRbpInfositeSections extends Basic
                 $this->set404();
             }
 
+            foreach ($sections as &$s) {
+                $s['PICTURE'] = $this->cropPicture($s['PICTURE']);
+            }
+
             if ($arParams['USE_SECTION_USER_FIELDS'] === 'Y') {
                 $this->setSectionsUserFields($sections);
             }
