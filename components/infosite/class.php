@@ -32,19 +32,35 @@ class A2cRbpInfosite extends Complex
     {
         return [
             'iblocks'  => '',
-            'sections' => '#IBLOCK_ID#',
-            'elements' => '#IBLOCK_ID#/#SECTION_ID#',
-            'detail'   => '#IBLOCK_ID#/#SECTION_ID#/#ELEMENT_ID#/',
+            'sections' => '#IBLOCK#',
+            'elements' => '#IBLOCK#/#SECTION#',
+            'detail'   => '#IBLOCK#/#SECTION#/#ELEMENT#/',
         ];
     }
 
     protected function arComponentVariables(): array
     {
         return [
-            'IBLOCK_ID',
-            'SECTION_ID',
-            'ELEMENT_ID',
+            'IBLOCK',
+            'SECTION',
+            'ELEMENT',
         ];
+    }
+
+    protected function arDefaultVariableAliases404(): array
+    {
+        $arParams = $this->arParams;
+        $result = [];
+        if (!empty($arParams['SEF_MODE_IBLOCK_ALIAS'])) {
+            $result['IBLOCK'] = $arParams['SEF_MODE_IBLOCK_ALIAS'];
+        }
+        if (!empty($arParams['SEF_MODE_SECTION_ALIAS'])) {
+            $result['SECTION'] = $arParams['SEF_MODE_SECTION_ALIAS'];
+        }
+        if (!empty($arParams['SEF_MODE_ELEMENT_ALIAS'])) {
+            $result['ELEMENT'] = $arParams['SEF_MODE_ELEMENT_ALIAS'];
+        }
+        return $result;
     }
 
     protected function defaultComponentPage404(): string
@@ -54,13 +70,13 @@ class A2cRbpInfosite extends Complex
 
     protected function defineComponentPage(array $arVariables): string
     {
-        if (intval($arVariables['ELEMENT_ID']) > 0) {
+        if (intval($arVariables['ELEMENT']) > 0) {
             return 'detail';
         }
-        if (intval($arVariables['SECTION_ID']) > 0 ) {
+        if (intval($arVariables['SECTION']) > 0 ) {
             return 'elements';
         }
-        if (intval($arVariables['IBCLOCK_ID']) > 0) {
+        if (intval($arVariables['IBLOCK']) > 0) {
             return 'sections';
         }
         return self::DEFAULT_PAGE;
@@ -77,20 +93,6 @@ class A2cRbpInfosite extends Complex
             'ALIASES'       => $componentVariables['VARIABLE_ALIASES'],
         ];
 
-        $this->setLinks();
-
         $this->IncludeComponentTemplate($componentVariables['PAGE']);
-    }
-
-    private function setLinks()
-    {
-        $arParams = $this->arParams;
-        $arResult = $this->arResult;
-
-        if (arParams['SEF_MODE'] == 'Y') {
-
-        } else {
-            $sections = "{$arResult['ALIASES']['IBLOCK_ID']}=#IBLOCK_ID#";
-        }
     }
 }

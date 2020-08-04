@@ -43,9 +43,9 @@ $arComponentParameters = [
     ],
     "PARAMETERS" => [
         "VARIABLE_ALIASES" => [
-            "IBLOCK_ID"  => ["NAME" => Loc::getMessage("A2C_RBP_INFOSITE_VARIABLE_ALIASES_IBLOCK_ID")],
-            "SECTION_ID" => ["NAME" => Loc::GetMessage("A2C_RBP_INFOSITE_VARIABLE_ALIASES_SECTION_ID")],
-            "ELEMENT_ID" => ["NAME" => Loc::GetMessage("A2C_RBP_INFOSITE_VARIABLE_ALIASES_ELEMENT_ID")],
+            "IBLOCK"  => ["NAME" => Loc::getMessage("A2C_RBP_INFOSITE_VARIABLE_ALIASES_IBLOCK_ID")],
+            "SECTION" => ["NAME" => Loc::GetMessage("A2C_RBP_INFOSITE_VARIABLE_ALIASES_SECTION_ID")],
+            "ELEMENT" => ["NAME" => Loc::GetMessage("A2C_RBP_INFOSITE_VARIABLE_ALIASES_ELEMENT_ID")],
         ],
         "SEF_MODE" => [
             "iblocks"  => [
@@ -109,3 +109,23 @@ $arComponentParameters = [
         ],
     ]
 ];
+
+if ($arCurrentValues['SEF_MODE'] === 'Y') {
+    $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
+        'SEF_MODE_IBLOCK_ALIAS' => [
+            "PARENT" => "SEF_MODE",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SEF_MODE_IBLOCK_ALIAS"),
+            "TYPE"   => "STRING",
+        ],
+        'SEF_MODE_SECTION_ALIAS' => [
+            "PARENT" => "SEF_MODE",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SEF_MODE_SECTION_ALIAS"),
+            "TYPE"   => "STRING",
+        ],
+        'SEF_MODE_ELEMENT_ALIAS' => [
+            "PARENT" => "SEF_MODE",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SEF_MODE_ELEMENT_ALIAS"),
+            "TYPE"   => "STRING",
+        ],
+    ]);
+}

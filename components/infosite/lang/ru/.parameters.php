@@ -27,6 +27,9 @@ $MESS['A2C_RBP_INFOSITE_SEF_MODE_IBLOCKS'] = 'Разводящая по инфо
 $MESS['A2C_RBP_INFOSITE_SEF_MODE_SECTIONS'] = 'Разводящая по секциям';
 $MESS['A2C_RBP_INFOSITE_SEF_MODE_ELEMENTS'] = 'Разводящая по элементрам';
 $MESS['A2C_RBP_INFOSITE_SEF_MODE_DETAIL'] = 'Детальная страница';
+$MESS['A2C_RBP_INFOSITE_SEF_MODE_IBLOCK_ALIAS'] = 'Псевдоним значения инфоблока';
+$MESS['A2C_RBP_INFOSITE_SEF_MODE_SECTION_ALIAS'] = 'Псевдоним значения секции';
+$MESS['A2C_RBP_INFOSITE_SEF_MODE_ELEMENT_ALIAS'] = 'Псевдоним значения элемента';
 
 // PARAMETERS
 $MESS['A2C_RBP_INFOSITE_IBLOCK_TYPE_ID'] = 'Тип инфоблока';
@@ -44,4 +47,7 @@ $MESS['A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'] = 'Использоваться
 // TOOLTIPS
 $MESS['USE_SECTION_USER_FIELDS_TIP'] = 'При выборке, будет сделан запрос за всеми пользовательскими полями';
 $MESS['USE_ELEMENT_PROPERTIES_TIP'] = 'При выборке, будет сделан запрос за всеми свойствами';
+$MESS['SEF_MODE_IBLOCK_ALIAS_TIP'] = 'Будет использован при парсинге url, обязательно заполнять при изменении стандартных шаблонов страниц';
+$MESS['SEF_MODE_SECTION_ALIAS_TIP'] = 'Будет использован при парсинге url, обязательно заполнять при изменении стандартных шаблонов страниц';
+$MESS['SEF_MODE_SECTION_ELEMENT_TIP'] = 'Будет использован при парсинге url, обязательно заполнять при изменении стандартных шаблонов страниц';
 ?>
