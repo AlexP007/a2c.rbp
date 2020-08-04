@@ -41,7 +41,7 @@ $MESS['A2C_RBP_INFOSITE_SECTIONS_IMAGE_WIDTH'] = 'Ширина фото';
 $MESS['A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'] = 'Использоваться свойства элементов';
 
 
-// TOOLTIP
+// TOOLTIPS
 $MESS['USE_SECTION_USER_FIELDS_TIP'] = 'При выборке, будет сделан запрос за всеми пользовательскими полями';
 $MESS['USE_ELEMENT_PROPERTIES_TIP'] = 'При выборке, будет сделан запрос за всеми свойствами';
 ?>

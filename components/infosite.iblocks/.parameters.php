@@ -15,28 +15,28 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
  * @link https://github.com/AlexP007/a2c.rbp
  */
 
-use Bitrix\Main\Loader;
 use Bitrix\Main\Localization\Loc;
-
-use A2C\RBP\Helpers\Tools;
-
-Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 $arComponentParameters = [
     "PARAMETERS" => [
-        "IBLOCK_TYPE_ID" => [
+        "IBLOCK_FILTER_KEY" => [
             "PARENT" => "DATA_SOURCE",
-            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IBLOCK_TYPE_ID"),
+            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IBLOCK_FILTER_KEY"),
+            "TYPE" => "STRING",
+        ],
+        "IBLOCK_FILTER_VALUE" => [
+            "PARENT" => "DATA_SOURCE",
+            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IBLOCK_FILTER_VALUE"),
             "TYPE" => "STRING",
         ],
         "IMAGE_HEIGHT" => [
             "PARENT" => "ADDITIONAL_SETTINGS",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_HEIGHT"),
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_HEIGHT"),
             "TYPE"   => "STRING",
         ],
         "IMAGE_WIDTH"  => [
             "PARENT" => "ADDITIONAL_SETTINGS",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_WIDTH"),
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
     ]

@@ -18,8 +18,8 @@ use Bitrix\Main\Localization\Loc;
  */
 
 $arComponentDescription = [
-    "NAME" => Loc::getMessage("A2C_RBP_INFOSITE.SECTIONS_COMPONENT_NAME"),
-    "DESCRIPTION" => Loc::getMessage("A2C_RBP_INFOSITE.SECTIONS_COMPONENT_DESCRIPTION"),
+    "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_COMPONENT_NAME"),
+    "DESCRIPTION" => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_COMPONENT_DESCRIPTION"),
     "SORT" => 3,
     "CACHE_PATH" => "Y",
     "COMPLEX" => "N",
@@ -27,7 +27,7 @@ $arComponentDescription = [
         "ID" => 'A2C',
         "CHILD" => [
             "ID" => 'resume_blog_pack',
-            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE.SECTIONS_MODULE_NAME"),
+            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_MODULE_NAME"),
             "SORT" => 30,
         ],
     ],
