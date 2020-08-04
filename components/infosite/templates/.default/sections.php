@@ -14,7 +14,16 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 
-echo 'section';
 
-debug($arParams);
-debug($arResult);
+$APPLICATION->IncludeComponent(
+    "a2c.rbp:infosite.sections",
+    "",
+    Array(
+        "IBLOCK_FILTER_KEY"       => $arResult['ALIASES']["IBLOCK"] ?? 'IBLOCK',
+        "IBLOCK_FILTER_VALUE"     => $arResult['VARIABLES'][$arResult['ALIASES']["IBLOCK"]] ?? $arResult['VARIABLES']['IBLOCK'],
+        'USE_SECTION_USER_FIELDS' => $arParams['USE_SECTION_USER_FIELDS'],
+        "IMAGE_HEIGHT"            => $arParams["SECTIONS_IMAGE_HEIGHT"],
+        "IMAGE_WIDTH"             => $arParams["SECTIONS_IMAGE_WIDTH"],
+    ),
+    $component
+);

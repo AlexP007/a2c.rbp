@@ -19,19 +19,30 @@ use Bitrix\Main\Localization\Loc;
 
 $arComponentParameters = [
     "PARAMETERS" => [
-        "IBLOCK_TYPE_ID" => [
+        "IBLOCK_FILTER_KEY" => [
             "PARENT" => "DATA_SOURCE",
-            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IBLOCK_TYPE_ID"),
+            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IBLOCK_FILTER_KEY"),
             "TYPE" => "STRING",
+        ],
+        "IBLOCK_FILTER_VALUE" => [
+            "PARENT" => "DATA_SOURCE",
+            "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IBLOCK_FILTER_VALUE"),
+            "TYPE" => "STRING",
+        ],
+        'USE_SECTION_USER_FIELDS' => [
+            "PARENT"  => "ADDITIONAL_SETTINGS",
+            "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_SECTIONS_USE_SECTION_USER_FIELDS'),
+            "TYPE"    => "CHECKBOX",
+            "DEFAULT" => "N"
         ],
         "IMAGE_HEIGHT" => [
             "PARENT" => "ADDITIONAL_SETTINGS",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_HEIGHT"),
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_HEIGHT"),
             "TYPE"   => "STRING",
         ],
         "IMAGE_WIDTH"  => [
             "PARENT" => "ADDITIONAL_SETTINGS",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_WIDTH"),
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
     ]
