@@ -54,8 +54,27 @@ class A2cRbpInfositeSections extends Basic
                 $this->set404();
             }
 
+            if ($arParams['USE_SECTION_USER_FIELDS'] === 'Y') {
+                $this->setSectionsUserFields($sections);
+            }
+
             $this->arResult['SECTIONS'] = $sections;
             $this->includeComponentTemplate();
+        }
+    }
+
+    private function setSectionsUserFields(array &$sections)
+    {
+        global $USER_FIELD_MANAGER;
+        foreach ($sections as &$section) {
+            $fields = $USER_FIELD_MANAGER->GetUserFields(
+                "IBLOCK_${section['IBLOCK_ID']}_SECTION",
+                $section['ID']
+            );
+            foreach ($fields as $field) {
+                $section[$field['FIELD_NAME']] = $field['VALUE'];
+                $section['~'.$field['FIELD_NAME']] = htmlspecialcharsEx($field['VALUE']);
+            }
         }
     }
 }
