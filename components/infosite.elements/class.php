@@ -65,7 +65,7 @@ class A2cRbpInfositeElements extends Basic
                 $s['PREVIEW_PICTURE'] = $this->cropPicture($s['PREVIEW_PICTURE']);
             }
 
-            if ($arParams['USE_ELEMENT_PROPERTIES'] === 'Y') {
+            if ($arParams['USE_ELEMENTS_PROPERTIES'] === 'Y') {
                 $this->setElementsProps($elements);
             }
 
