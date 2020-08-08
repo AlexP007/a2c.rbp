@@ -12,8 +12,8 @@
  */
 
 // PARAMETERS
-$MESS['A2C_RBP_INFOSITE_SECTIONS_IBLOCK_FILTER_KEY'] = 'Ключ для фильтра';
-$MESS['A2C_RBP_INFOSITE_SECTIONS_IBLOCK_FILTER_VALUE'] = 'Значение ключа фильтра';
+$MESS['A2C_RBP_INFOSITE_SECTIONS_IBLOCK_FILTER_KEY'] = 'Ключ для фильтра инфоблока';
+$MESS['A2C_RBP_INFOSITE_SECTIONS_IBLOCK_FILTER_VALUE'] = 'Значение ключа фильтра инфоблока';
 $MESS['A2C_RBP_INFOSITE_SECTIONS_USE_SECTION_USER_FIELDS'] = 'Использовать пользователские поля секций';
 $MESS['A2C_RBP_INFOSITE_SECTIONS_IMAGE_HEIGHT'] = 'Высота фото';
 $MESS['A2C_RBP_INFOSITE_SECTIONS_IMAGE_WIDTH'] = 'Ширина фото';
