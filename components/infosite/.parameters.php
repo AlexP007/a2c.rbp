@@ -75,18 +75,6 @@ $arComponentParameters = [
             "TYPE"   => "LIST",
             "VALUES" => Parameters::getIblockTypes(),
         ],
-        'USE_SECTION_USER_FIELDS' => [
-            "PARENT"  => "SECTIONS",
-            "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_SECTION_USER_FIELDS'),
-            "TYPE"    => "CHECKBOX",
-            "DEFAULT" => "N"
-        ],
-        'USE_ELEMENT_PROPERTIES' => [
-            "PARENT"  => "DETAIL",
-            "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'),
-            "TYPE"    => "CHECKBOX",
-            "DEFAULT" => "N"
-        ],
         "IBLOCKS_IMAGE_HEIGHT" => [
             "PARENT" => "IBLOCKS",
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_HEIGHT"),
@@ -97,6 +85,12 @@ $arComponentParameters = [
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
+        'USE_SECTION_USER_FIELDS' => [
+            "PARENT"  => "SECTIONS",
+            "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_SECTION_USER_FIELDS'),
+            "TYPE"    => "CHECKBOX",
+            "DEFAULT" => "N"
+        ],
         "SECTIONS_IMAGE_HEIGHT" => [
             "PARENT" => "SECTIONS",
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_HEIGHT"),
@@ -105,6 +99,22 @@ $arComponentParameters = [
         "SECTIONS_IMAGE_WIDTH"  => [
             "PARENT" => "SECTIONS",
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_WIDTH"),
+            "TYPE"   => "STRING",
+        ],
+        'USE_ELEMENTS_PROPERTIES' => [
+            "PARENT"  => "ELEMENTS",
+            "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_ELEMENTS_PROPERTIES'),
+            "TYPE"    => "CHECKBOX",
+            "DEFAULT" => "N"
+        ],
+        "ELEMENTS_IMAGE_HEIGHT" => [
+            "PARENT" => "ELEMENTS",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_ELEMENTS_IMAGE_HEIGHT"),
+            "TYPE"   => "STRING",
+        ],
+        "ELEMENTS_IMAGE_WIDTH"  => [
+            "PARENT" => "ELEMENTS",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_ELEMENTS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
     ]

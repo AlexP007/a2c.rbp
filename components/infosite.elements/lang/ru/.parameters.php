@@ -16,9 +16,9 @@ $MESS['A2C_RBP_INFOSITE_ELEMENTS_IBLOCK_FILTER_KEY'] = 'Ключ для филь
 $MESS['A2C_RBP_INFOSITE_ELEMENTS_IBLOCK_FILTER_VALUE'] = 'Значение ключа фильтра инфоблока';
 $MESS['A2C_RBP_INFOSITE_ELEMENTS_SECTION_FILTER_KEY'] = 'Ключ для фильтра секции';
 $MESS['A2C_RBP_INFOSITE_ELEMENTS_SECTION_FILTER_VALUE'] = 'Значение ключа фильтра секции';
-$MESS['A2C_RBP_INFOSITE_ELEMENTS_USE_ELEMENT_PROPERTIES'] = 'Использовать свойствапы';
-$MESS['A2C_RBP_INFOSITE_ELEMENTS_IMAGE_HEIGHT'] = 'Высота фото';
-$MESS['A2C_RBP_INFOSITE_ELEMENTS_IMAGE_WIDTH'] = 'Ширина фото';
+$MESS['A2C_RBP_INFOSITE_ELEMENTS_USE_ELEMENTS_PROPERTIES'] = 'Использовать свойства';
+$MESS['A2C_RBP_INFOSITE_ELEMENTS_IMAGE_HEIGHT'] = 'Высота фото (картинка для анонса)';
+$MESS['A2C_RBP_INFOSITE_ELEMENTS_IMAGE_WIDTH'] = 'Ширина фото (картинка для анонса)';
 
 // TOOLTIPS
 $MESS['IBLOCK_FILTER_KEY_TIP'] = 'Будет использован при выборке';

@@ -100,7 +100,7 @@ class Iblock
      * @throws \Bitrix\Main\ObjectPropertyException
      * @throws \Bitrix\Main\SystemException
      */
-    public static function getIblockElements(int $id): array
+    public static function getIblockElementsIdName(int $id): array
     {
         self::includeModule();
 

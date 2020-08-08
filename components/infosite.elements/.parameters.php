@@ -37,9 +37,9 @@ $arComponentParameters = [
             "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_ELEMENTS_SECTION_FILTER_VALUE"),
             "TYPE" => "STRING",
         ],
-        "USE_ELEMENT_PROPERTIES" => [
+        "USE_ELEMENTS_PROPERTIES" => [
             "PARENT"  => "ADDITIONAL_SETTINGS",
-            "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_ELEMENTS_USE_ELEMENT_PROPERTIES'),
+            "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_ELEMENTS_USE_ELEMENTS_PROPERTIES'),
             "TYPE"    => "CHECKBOX",
             "DEFAULT" => "N"
         ],

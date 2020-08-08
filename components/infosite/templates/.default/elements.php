@@ -16,14 +16,16 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 
 
 $APPLICATION->IncludeComponent(
-    "a2c.rbp:infosite.sections",
+    "a2c.rbp:infosite.elements",
     "",
     Array(
         "IBLOCK_FILTER_KEY"       => $arResult['ALIASES']["IBLOCK"] ?? 'IBLOCK_ID',
         "IBLOCK_FILTER_VALUE"     => $arResult['VARIABLES'][$arResult['ALIASES']["IBLOCK"]] ?? $arResult['VARIABLES']['IBLOCK'],
-        'USE_SECTION_USER_FIELDS' => $arParams['USE_SECTION_USER_FIELDS'],
-        "IMAGE_HEIGHT"            => $arParams["SECTIONS_IMAGE_HEIGHT"],
-        "IMAGE_WIDTH"             => $arParams["SECTIONS_IMAGE_WIDTH"],
+        "SECTION_FILTER_KEY"      => $arResult['ALIASES']["SECTION"] ?? 'SECTION_ID',
+        "SECTION_FILTER_VALUE"    => $arResult['VARIABLES'][$arResult['ALIASES']["SECTION"]] ?? $arResult['VARIABLES']['SECTION'],
+        'USE_ELEMENTS_PROPERTIES' => $arParams['USE_ELEMENTS_PROPERTIES'],
+        "IMAGE_HEIGHT"            => $arParams["ELEMENTS_IMAGE_HEIGHT"],
+        "IMAGE_WIDTH"             => $arParams["ELEMENTS_IMAGE_WIDTH"],
     ),
     $component
 );
