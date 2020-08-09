@@ -117,25 +117,21 @@ $arComponentParameters = [
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_ELEMENTS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
+        'USE_ELEMENT_PROPERTIES' => [
+            "PARENT"  => "DETAIL",
+            "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'),
+            "TYPE"    => "CHECKBOX",
+            "DEFAULT" => "N"
+        ],
+        "DETAIL_IMAGE_HEIGHT" => [
+            "PARENT" => "DETAIL",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_DETAIL_IMAGE_HEIGHT"),
+            "TYPE"   => "STRING",
+        ],
+        "DETAIL_IMAGE_WIDTH"  => [
+            "PARENT" => "DETAIL",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_DETAIL_IMAGE_WIDTH"),
+            "TYPE"   => "STRING",
+        ],
     ]
 ];
-
-if ($arCurrentValues['SEF_MODE'] === 'Y') {
-    $arComponentParameters['PARAMETERS'] = array_merge($arComponentParameters['PARAMETERS'], [
-        'SEF_MODE_IBLOCK_ALIAS' => [
-            "PARENT" => "SEF_MODE",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SEF_MODE_IBLOCK_ALIAS"),
-            "TYPE"   => "STRING",
-        ],
-        'SEF_MODE_SECTION_ALIAS' => [
-            "PARENT" => "SEF_MODE",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SEF_MODE_SECTION_ALIAS"),
-            "TYPE"   => "STRING",
-        ],
-        'SEF_MODE_ELEMENT_ALIAS' => [
-            "PARENT" => "SEF_MODE",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SEF_MODE_ELEMENT_ALIAS"),
-            "TYPE"   => "STRING",
-        ],
-    ]);
-}

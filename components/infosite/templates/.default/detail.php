@@ -14,7 +14,13 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die;
 }
 
-echo 'detail';
-
-debug($arParams);
-debug($arResult);
+$APPLICATION->IncludeComponent(
+    "a2c.rbp:infosite.detail",
+    "",
+    Array(
+        'USE_ELEMENT_PROPERTIES'  => $arParams['USE_ELEMENT_PROPERTIES'],
+        "IMAGE_HEIGHT"            => $arParams["DETAIL_IMAGE_HEIGHT"],
+        "IMAGE_WIDTH"             => $arParams["DETAIL_IMAGE_WIDTH"],
+    ),
+    $component
+);

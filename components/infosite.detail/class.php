@@ -14,7 +14,7 @@ use A2C\RBP\Helpers\{Iblock, Tools};
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
 
 /**
- * Компонент Инфо-сайт Элементы секций
+ * Компонент Инфо-сайт Детальная страница элемента
  *
  * Class A2cRbpInfositeElements
  * Выводит все инфоблоки одного типа
@@ -25,7 +25,7 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  * @email alex.p.panteleev@gmail.com
  * @link https://github.com/AlexP007/a2c.rbp
  */
-class A2cRbpInfositeElements extends Basic
+class A2cRbpInfositeDetail extends Basic
 {
     public function onPrepareComponentParams($arParams)
     {
@@ -42,26 +42,22 @@ class A2cRbpInfositeElements extends Basic
                 ['SORT' => 'ASC'],
                 $filter
             );
-            $elementsResult->SetUrlTemplates();
-            $elements = [];
-            while ($s = $elementsResult->GetNext()) {
-                $elements[] = $s;
-            }
 
-            if (empty($elements)) {
+            $elementsResult->SetUrlTemplates();
+            $element = $elementsResult->GetNext();
+
+            if (empty($element)) {
                 $this->abortResultCache();
                 $this->set404();
             }
 
-            foreach ($elements as &$s) {
-                $s['PREVIEW_PICTURE'] = $this->cropPicture($s['PREVIEW_PICTURE']);
+            $element['DETAIL_PICTURE'] = $this->cropPicture($element['DETAIL_PICTURE']);
+
+            if ($arParams['USE_ELEMENT_PROPERTIES'] === 'Y') {
+                $this->setElementProps($element);
             }
 
-            if ($arParams['USE_ELEMENTS_PROPERTIES'] === 'Y') {
-                $this->setElementsProps($elements);
-            }
-
-            $this->arResult['ELEMENTS'] = $elements;
+            $this->arResult['ELEMENT'] = $element;
             $this->includeComponentTemplate();
         }
     }
@@ -81,9 +77,13 @@ class A2cRbpInfositeElements extends Basic
                 $sectionKey = $parentResult['ALIASES']["SECTION"] ?? 'SECTION_ID';
                 $sectionValue = $parentResult['VARIABLES'][$parentResult['ALIASES']["SECTION"]]
                     ?? $parentResult['VARIABLES']['SECTION'];
+                $elementKey = $parentResult['ALIASES']["ELEMENT"] ?? 'ELEMENT_ID';
+                $elementValue = $parentResult['VARIABLES'][$parentResult['ALIASES']["ELEMENT"]]
+                    ?? $parentResult['VARIABLES']['ELEMENT'];
                 $filter = [
                     $iblockKey  => $iblockValue,
-                    $sectionKey => $sectionValue
+                    $sectionKey => $sectionValue,
+                    $elementKey => $elementValue
                 ];
             }
         } else {
@@ -91,24 +91,22 @@ class A2cRbpInfositeElements extends Basic
             $iblockValue = $arParams['~IBLOCK_FILTER_VALUE'];
             $sectionKey = $arParams['~SECTION_FILTER_KEY'];
             $sectionValue = $arParams['~SECTION_FILTER_VALUE'];
+            $elementKey = $arParams['~ELEMENT_FILTER_KEY'];
+            $elementValue = $arParams['~ELEMENT_FILTER_VALUE'];
             $filter = [
                 $iblockKey  => $iblockValue,
-                $sectionKey => $sectionValue
+                $sectionKey => $sectionValue,
+                $elementKey => $elementValue
             ];
         }
         return  array_merge($filter, ['ACTIVE' => 'Y']);
     }
 
-    private function setElementsProps(array &$elements)
+    private function setElementProps(array &$element)
     {
-        $props = [];
-        $iblockId = $elements[0]['IBLOCK_ID'];
-        CIBlockElement::GetPropertyValuesArray($props, $iblockId, []);
-        foreach ($elements as &$element) {
-            $eltId = $element['ID'];
-            if (!empty($props[$eltId])) {
-                $element['PROPERTIES'] = $props[$eltId];
-            }
-        }
+        $iblockId = $element['IBLOCK_ID'];
+        $eltId = $element['ID'];
+        $props = CIBlockElement::GetProperty($iblockId, $eltId)->Fetch();
+        $element['PROPERTIES'] = $props;
     }
 }

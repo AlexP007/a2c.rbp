@@ -15,6 +15,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
  * @link https://github.com/AlexP007/a2c.rbp
  */
 
+use Bitrix\Main\Localization\Loc;
+
 $arComponentParameters = [
     "PARAMETERS" => [
         "IBLOCK_FILTER_KEY" => [

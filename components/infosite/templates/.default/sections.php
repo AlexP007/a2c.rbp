@@ -19,8 +19,6 @@ $APPLICATION->IncludeComponent(
     "a2c.rbp:infosite.sections",
     "",
     Array(
-        "IBLOCK_FILTER_KEY"       => $arResult['ALIASES']["IBLOCK"] ?? 'IBLOCK_ID',
-        "IBLOCK_FILTER_VALUE"     => $arResult['VARIABLES'][$arResult['ALIASES']["IBLOCK"]] ?? $arResult['VARIABLES']['IBLOCK'],
         'USE_SECTION_USER_FIELDS' => $arParams['USE_SECTION_USER_FIELDS'],
         "IMAGE_HEIGHT"            => $arParams["SECTIONS_IMAGE_HEIGHT"],
         "IMAGE_WIDTH"             => $arParams["SECTIONS_IMAGE_WIDTH"],

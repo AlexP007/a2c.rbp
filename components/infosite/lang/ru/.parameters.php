@@ -15,7 +15,7 @@
 $MESS['A2C_RBP_INFOSITE_GROUP_IBLOCKS'] = 'Настройки страницы инфоблоков';
 $MESS['A2C_RBP_INFOSITE_GROUP_SECTIONS'] = 'Настройки страницы секции';
 $MESS['A2C_RBP_INFOSITE_GROUP_ELEMENTS'] = 'Настройки страницы элементов';
-$MESS['A2C_RBP_INFOSITE_GROUP_DETAIL'] = 'Настройки детальной';
+$MESS['A2C_RBP_INFOSITE_GROUP_DETAIL'] = 'Настройки детальной страницы';
 
 // VARIABLE ALIASES
 $MESS['A2C_RBP_INFOSITE_VARIABLE_ALIASES_IBLOCK_ID'] = 'Идентификатор инфоблока';
@@ -25,11 +25,8 @@ $MESS['A2C_RBP_INFOSITE_VARIABLE_ALIASES_ELEMENT_ID'] = 'Идентификат�
 // SEF MODE
 $MESS['A2C_RBP_INFOSITE_SEF_MODE_IBLOCKS'] = 'Разводящая по инфоблокам';
 $MESS['A2C_RBP_INFOSITE_SEF_MODE_SECTIONS'] = 'Разводящая по секциям';
-$MESS['A2C_RBP_INFOSITE_SEF_MODE_ELEMENTS'] = 'Разводящая по элементрам';
+$MESS['A2C_RBP_INFOSITE_SEF_MODE_ELEMENTS'] = 'Разводящая по элементам';
 $MESS['A2C_RBP_INFOSITE_SEF_MODE_DETAIL'] = 'Детальная страница';
-$MESS['A2C_RBP_INFOSITE_SEF_MODE_IBLOCK_ALIAS'] = 'Псевдоним значения инфоблока';
-$MESS['A2C_RBP_INFOSITE_SEF_MODE_SECTION_ALIAS'] = 'Псевдоним значения секции';
-$MESS['A2C_RBP_INFOSITE_SEF_MODE_ELEMENT_ALIAS'] = 'Псевдоним значения элемента';
 
 // PARAMETERS
 $MESS['A2C_RBP_INFOSITE_IBLOCK_TYPE_ID'] = 'Тип инфоблока';
@@ -45,11 +42,11 @@ $MESS['A2C_RBP_INFOSITE_USE_ELEMENTS_PROPERTIES'] = 'Использовать с
 $MESS['A2C_RBP_INFOSITE_ELEMENTS_IMAGE_HEIGHT'] = 'Высота фото (картинка для анонса)';
 $MESS['A2C_RBP_INFOSITE_ELEMENTS_IMAGE_WIDTH'] = 'Ширина фото (картинка для анонса)';
 // detail
+$MESS['A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'] = 'Использовать свойства элемента';
+$MESS['A2C_RBP_INFOSITE_DETAIL_IMAGE_HEIGHT'] = 'Высота фото (детальная картинка)';
+$MESS['A2C_RBP_INFOSITE_DETAIL_IMAGE_WIDTH'] = 'Ширина фото (детальная картинка)';
 
 // TOOLTIPS
 $MESS['USE_SECTION_USER_FIELDS_TIP'] = 'При выборке, будет сделан запрос за всеми пользовательскими полями';
 $MESS['USE_ELEMENTS_PROPERTIES_TIP'] = 'При выборке, будет сделан запрос за всеми свойствами';
-$MESS['SEF_MODE_IBLOCK_ALIAS_TIP'] = 'Будет использован при парсинге url, обязательно заполнять при изменении стандартных шаблонов страниц';
-$MESS['SEF_MODE_SECTION_ALIAS_TIP'] = 'Будет использован при парсинге url, обязательно заполнять при изменении стандартных шаблонов страниц';
-$MESS['SEF_MODE_SECTION_ELEMENT_TIP'] = 'Будет использован при парсинге url, обязательно заполнять при изменении стандартных шаблонов страниц';
 ?>

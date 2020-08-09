@@ -47,22 +47,6 @@ class A2cRbpInfosite extends Complex
         ];
     }
 
-    protected function arDefaultVariableAliases404(): array
-    {
-        $arParams = $this->arParams;
-        $result = [];
-        if (!empty($arParams['SEF_MODE_IBLOCK_ALIAS'])) {
-            $result['IBLOCK'] = $arParams['SEF_MODE_IBLOCK_ALIAS'];
-        }
-        if (!empty($arParams['SEF_MODE_SECTION_ALIAS'])) {
-            $result['SECTION'] = $arParams['SEF_MODE_SECTION_ALIAS'];
-        }
-        if (!empty($arParams['SEF_MODE_ELEMENT_ALIAS'])) {
-            $result['ELEMENT'] = $arParams['SEF_MODE_ELEMENT_ALIAS'];
-        }
-        return $result;
-    }
-
     protected function defaultComponentPage404(): string
     {
         return self::DEFAULT_PAGE;

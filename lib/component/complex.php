@@ -22,8 +22,6 @@ abstract class Complex extends Basic
 
     abstract protected function arComponentVariables(): array;
 
-    abstract protected function arDefaultVariableAliases404(): array;
-
     abstract protected function defaultComponentPage404(): string;
 
     /**
@@ -41,7 +39,7 @@ abstract class Complex extends Basic
         $arParams = $this->arParams;
 
         $arDefaultUrlTemplates404 = $this->arDefaultUrlTemplates404();
-        $arDefaultVariableAliases404 = $this->arDefaultVariableAliases404();
+        $arDefaultVariableAliases404 = [];
 
         $arComponentVariables = $this->arComponentVariables();
         $arDefaultVariableAliases = [];

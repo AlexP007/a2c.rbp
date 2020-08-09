@@ -36,12 +36,10 @@ class A2cRbpInfositeSections extends Basic
         Iblock::includeModule();
         $arParams = $this->arParams;
         if ($this->startResultCache(false)) {
-            $key = $arParams['~IBLOCK_FILTER_KEY'];
-            $value = $arParams['~IBLOCK_FILTER_VALUE'];
-
+            $filter = $this->prepareFilter();
             $sectionsResult = CIBlockSection::GetList(
                 ['SORT' => 'ASC'],
-                [$key => $value, 'ACTIVE' => 'Y']
+                $filter
             );
             $sectionsResult->SetUrlTemplates();
             $sections = [];
@@ -65,6 +63,28 @@ class A2cRbpInfositeSections extends Basic
             $this->arResult['SECTIONS'] = $sections;
             $this->includeComponentTemplate();
         }
+    }
+
+    private function prepareFilter(): array
+    {
+        $arParams = $this->arParams;
+        if ($this->getParent()) {
+            $parentResult = $this->getParent()->arResult;
+            $parentParams = $this->getParent()->arParams;
+            if ($parentParams['SEF_MODE'] === 'Y') {
+                $filter = filter_var_array($parentResult['VARIABLES'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            } else {
+                $key = $parentResult['ALIASES']["IBLOCK"] ?? 'IBLOCK_ID';
+                $value = $parentResult['VARIABLES'][$parentResult['ALIASES']["IBLOCK"]]
+                    ?? $parentResult['VARIABLES']['IBLOCK'];
+                $filter = [$key => $value];
+            }
+        } else {
+            $key = $arParams['~IBLOCK_FILTER_KEY'];
+            $value = $arParams['~IBLOCK_FILTER_VALUE'];
+            $filter = [$key => $value];
+        }
+        return  array_merge($filter, ['ACTIVE' => 'Y']);
     }
 
     private function setSectionsUserFields(array &$sections)
