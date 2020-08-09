@@ -55,12 +55,12 @@ $arComponentParameters = [
             ],
             "sections" => [
                 "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_SECTIONS"),
-                "DEFAULT"   => "#IBLOCK_ID#",
+                "DEFAULT"   => "#IBLOCK_ID#/",
                 "VARIABLES" => ["IBLOCK_ID"],
             ],
             "elements" => [
                 "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_ELEMENTS"),
-                "DEFAULT"   => "#IBLOCK_ID#/#SECTION_ID#",
+                "DEFAULT"   => "#IBLOCK_ID#/#SECTION_ID#/",
                 "VARIABLES" => ["IBLOCK_ID", "SECTION_ID"],
             ],
             "detail"  => [
@@ -69,12 +69,15 @@ $arComponentParameters = [
                 "VARIABLES" => ["IBLOCK_ID", "SECTION_ID", "ID"],
             ],
         ],
+        "CACHE_TIME"   => ["DEFAULT" => 36000000],
+        // DATA_SOURCE
         "IBLOCK_TYPE_ID" => [
             "PARENT" => "DATA_SOURCE",
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCK_TYPE_ID"),
             "TYPE"   => "LIST",
             "VALUES" => Parameters::getIblockTypes(),
         ],
+        // IBLOCKS
         "IBLOCKS_IMAGE_HEIGHT" => [
             "PARENT" => "IBLOCKS",
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_HEIGHT"),
@@ -85,6 +88,7 @@ $arComponentParameters = [
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
+        // SECTIONS
         'USE_SECTION_USER_FIELDS' => [
             "PARENT"  => "SECTIONS",
             "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_SECTION_USER_FIELDS'),
@@ -101,6 +105,7 @@ $arComponentParameters = [
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SECTIONS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
+        // ELEMENTS
         'USE_ELEMENTS_PROPERTIES' => [
             "PARENT"  => "ELEMENTS",
             "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_ELEMENTS_PROPERTIES'),
@@ -117,6 +122,7 @@ $arComponentParameters = [
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_ELEMENTS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
+        // DETAIL
         'USE_ELEMENT_PROPERTIES' => [
             "PARENT"  => "DETAIL",
             "NAME"    => Loc::getMessage('A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'),
@@ -132,6 +138,12 @@ $arComponentParameters = [
             "PARENT" => "DETAIL",
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_DETAIL_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
+        ],
+        // ADDITIONAL_SETTINGS
+        "SET_BREADCRUMBS"  => [
+            "PARENT" => "ADDITIONAL_SETTINGS",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_SET_BREADCRUMBS"),
+            "TYPE"   => "CHECKBOX",
         ],
     ]
 ];

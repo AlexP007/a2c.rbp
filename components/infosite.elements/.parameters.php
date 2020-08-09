@@ -19,6 +19,7 @@ use Bitrix\Main\Localization\Loc;
 
 $arComponentParameters = [
     "PARAMETERS" => [
+        "CACHE_TIME"   => ["DEFAULT" => 36000000],
         "IBLOCK_FILTER_KEY" => [
             "PARENT" => "DATA_SOURCE",
             "NAME" => Loc::getMessage("A2C_RBP_INFOSITE_ELEMENTS_IBLOCK_FILTER_KEY"),
