@@ -22,6 +22,8 @@ $APPLICATION->IncludeComponent(
         'USE_SECTION_USER_FIELDS' => $arParams['USE_SECTION_USER_FIELDS'],
         "IMAGE_HEIGHT"            => $arParams["SECTIONS_IMAGE_HEIGHT"],
         "IMAGE_WIDTH"             => $arParams["SECTIONS_IMAGE_WIDTH"],
+        "CACHE_TYPE"              => $arParams["CACHE_TYPE"],
+        "CACHE_TIME"              => $arParams["CACHE_TIME"],
     ),
     $component
 );

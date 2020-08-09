@@ -22,6 +22,8 @@ $APPLICATION->IncludeComponent(
         'USE_ELEMENTS_PROPERTIES' => $arParams['USE_ELEMENTS_PROPERTIES'],
         "IMAGE_HEIGHT"            => $arParams["ELEMENTS_IMAGE_HEIGHT"],
         "IMAGE_WIDTH"             => $arParams["ELEMENTS_IMAGE_WIDTH"],
+        "CACHE_TYPE"              => $arParams["CACHE_TYPE"],
+        "CACHE_TIME"              => $arParams["CACHE_TIME"],
     ),
     $component
 );
