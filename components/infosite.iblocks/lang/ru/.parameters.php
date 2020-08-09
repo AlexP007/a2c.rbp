@@ -15,4 +15,5 @@
 $MESS['A2C_RBP_INFOSITE_IBLOCKS_IBLOCK_TYPE_ID'] = 'Тип инфоблока';
 $MESS['A2C_RBP_INFOSITE_IBLOCKS_IMAGE_HEIGHT'] = 'Высота фото';
 $MESS['A2C_RBP_INFOSITE_IBLOCKS_IMAGE_WIDTH'] = 'Ширина фото';
+$MESS['A2C_RBP_INFOSITE_IBLOCKS_SET_BREADCRUMBS'] = 'Добавлять название в цепочку навигации';
 ?>
