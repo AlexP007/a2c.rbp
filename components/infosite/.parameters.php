@@ -33,7 +33,7 @@ $arComponentParameters = [
             'SORT' => 460,
         ],
         'ELEMENTS' => [
-            'NAME' => Loc::getMessage('A2C_RBP_INFOSITE_GROUP_SECTIONS'),
+            'NAME' => Loc::getMessage('A2C_RBP_INFOSITE_GROUP_ELEMENTS'),
             'SORT' => 460,
         ],
         'DETAIL' => [
@@ -61,12 +61,12 @@ $arComponentParameters = [
             "elements" => [
                 "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_ELEMENTS"),
                 "DEFAULT"   => "#IBLOCK_ID#/#SECTION_ID#",
-                "VARIABLES" => ["IBCLOCK_ID", "SECTION_ID"],
+                "VARIABLES" => ["IBLOCK_ID", "SECTION_ID"],
             ],
             "detail"  => [
                 "NAME"      => Loc::GetMessage("A2C_RBP_INFOSITE_SEF_MODE_DETAIL"),
-                "DEFAULT"   => "#SECTION_ID#/#ELEMENT_ID#/",
-                "VARIABLES" => ["IBCLOCK_ID", "SECTION_ID", "ELEMENT_ID"],
+                "DEFAULT"   => "#IBLOCK_ID#/#SECTION_ID#/#ID#/",
+                "VARIABLES" => ["IBLOCK_ID", "SECTION_ID", "ID"],
             ],
         ],
         "IBLOCK_TYPE_ID" => [

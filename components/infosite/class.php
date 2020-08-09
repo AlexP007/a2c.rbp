@@ -32,9 +32,9 @@ class A2cRbpInfosite extends Complex
     {
         return [
             'iblocks'  => '',
-            'sections' => '#IBLOCK#',
-            'elements' => '#IBLOCK#/#SECTION#',
-            'detail'   => '#IBLOCK#/#SECTION#/#ELEMENT#/',
+            'sections' => '#IBLOCK_ID#',
+            'elements' => '#IBLOCK_ID#/#SECTION_ID#',
+            'detail'   => '#IBLOCK_ID#/#SECTION_ID#/#ID#/',
         ];
     }
 
