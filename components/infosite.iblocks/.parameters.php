@@ -35,10 +35,5 @@ $arComponentParameters = [
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_IMAGE_WIDTH"),
             "TYPE"   => "STRING",
         ],
-        "SET_BREADCRUMBS"  => [
-            "PARENT" => "ADDITIONAL_SETTINGS",
-            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_IBLOCKS_SET_BREADCRUMBS"),
-            "TYPE"   => "CHECKBOX",
-        ],
     ]
 ];

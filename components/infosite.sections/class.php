@@ -5,6 +5,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 }
 
 use Bitrix\Main\Loader;
+use CIblock;
 use CIBlockSection;
 
 use A2C\RBP\Component\Basic;
@@ -36,33 +37,48 @@ class A2cRbpInfositeSections extends Basic
         Iblock::includeModule();
         $arParams = $this->arParams;
         if ($this->startResultCache(false)) {
-            $filter = $this->prepareFilter();
-            $sectionsResult = CIBlockSection::GetList(
-                ['SORT' => 'ASC'],
-                $filter
-            );
-            $sectionsResult->SetUrlTemplates();
-            $sections = [];
-            while ($s = $sectionsResult->GetNext()) {
-                $sections[] = $s;
-            }
-
+            $sections = $this->fetchSections();
             if (empty($sections)) {
                 $this->abortResultCache();
                 $this->set404();
             }
-
-            foreach ($sections as &$s) {
-                $s['PICTURE'] = $this->cropPicture($s['PICTURE']);
-            }
+            $this->cropPictures($sections);
 
             if ($arParams['USE_SECTION_USER_FIELDS'] === 'Y') {
                 $this->setSectionsUserFields($sections);
             }
-
             $this->arResult['SECTIONS'] = $sections;
+
+            if ($arParams['SET_BREADCRUMBS'] === 'Y') {
+                $iblockId = $sections[0]['IBLOCK_ID'];
+                $iblock = $this->fetchIblock((int) $iblockId);
+                $this->arResult['IBLOCK'] = $iblock;
+            }
+
             $this->includeComponentTemplate();
         }
+
+        if ($arParams['SET_BREADCRUMBS'] === 'Y') {
+            $iblock = $this->arResult['IBLOCK'];
+            if (!empty($iblock)) {
+                $this->application->AddChainItem($iblock['NAME'], $iblock['LIST_PAGE_URL']);
+            }
+        }
+    }
+
+    private function fetchSections(): array
+    {
+        $filter = $this->prepareFilter();
+        $sectionsResult = CIBlockSection::GetList(
+            ['SORT' => 'ASC'],
+            $filter
+        );
+        $sectionsResult->SetUrlTemplates();
+        $sections = [];
+        while ($s = $sectionsResult->GetNext()) {
+            $sections[] = $s;
+        }
+        return $sections;
     }
 
     private function prepareFilter(): array
@@ -87,6 +103,13 @@ class A2cRbpInfositeSections extends Basic
         return  array_merge($filter, ['ACTIVE' => 'Y']);
     }
 
+    private function cropPictures(array &$sections)
+    {
+        foreach ($sections as &$s) {
+            $s['PICTURE'] = $this->cropPicture($s['PICTURE']);
+        }
+    }
+
     private function setSectionsUserFields(array &$sections)
     {
         global $USER_FIELD_MANAGER;
@@ -100,5 +123,12 @@ class A2cRbpInfositeSections extends Basic
                 $section['~'.$field['FIELD_NAME']] = htmlspecialcharsEx($field['VALUE']);
             }
         }
+    }
+
+    private function fetchIblock(int $id)
+    {
+        $i = CIblock::GetById($id)->Fetch();
+        Iblock::replaceListUrl($i);
+        return $i;
     }
 }

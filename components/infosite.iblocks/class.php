@@ -34,11 +34,11 @@ class A2cRbpInfositeIblock extends Basic
     public function executeComponent()
     {
         Iblock::includeModule();
-
+        $arParams = $this->arParams;
         if ($this->startResultCache(false)) {
             $iblocksResult = CIBlock::GetList(
                 ['SORT' => 'ASC'],
-                ['=ACTIVE' => 'Y', 'TYPE' => $this->arParams['IBLOCK_TYPE_ID']]
+                ['=ACTIVE' => 'Y', 'TYPE' => $arParams['IBLOCK_TYPE_ID']]
             );
             $iblocks = [];
             while ($i = $iblocksResult->GetNext()) {
