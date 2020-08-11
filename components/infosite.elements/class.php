@@ -65,8 +65,8 @@ class A2cRbpInfositeElements extends InfositeBasic
                 $this->application->AddChainItem($iblock['NAME'], $iblock['LIST_PAGE_URL']);
             }
             $section = $this->arResult['SECTION'];
-            if (!empty($section )) {
-                $this->application->AddChainItem($section ['NAME'], $section ['SECTION_PAGE_URL']);
+            if (!empty($section)) {
+                $this->application->AddChainItem($section['NAME'], $section['SECTION_PAGE_URL']);
             }
         }
     }

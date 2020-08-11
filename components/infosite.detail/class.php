@@ -7,8 +7,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 use Bitrix\Main\Loader;
 use CIBlockElement;
 
-
-use A2C\RBP\Component\Basic;
+use A2C\RBP\Component\InfositeBasic;
 use A2C\RBP\Helpers\{Iblock, Tools};
 
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
@@ -25,7 +24,7 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  * @email alex.p.panteleev@gmail.com
  * @link https://github.com/AlexP007/a2c.rbp
  */
-class A2cRbpInfositeDetail extends Basic
+class A2cRbpInfositeDetail extends InfositeBasic
 {
     public function onPrepareComponentParams($arParams)
     {
@@ -37,15 +36,7 @@ class A2cRbpInfositeDetail extends Basic
         Iblock::includeModule();
         $arParams = $this->arParams;
         if ($this->startResultCache(false)) {
-            $filter = $this->prepareFilter();
-            $elementsResult = CIBlockElement::GetList(
-                ['SORT' => 'ASC'],
-                $filter
-            );
-
-            $elementsResult->SetUrlTemplates();
-            $element = $elementsResult->GetNext();
-
+            $element = $this->fetchElement();
             if (empty($element)) {
                 $this->abortResultCache();
                 $this->set404();
@@ -56,10 +47,44 @@ class A2cRbpInfositeDetail extends Basic
             if ($arParams['USE_ELEMENT_PROPERTIES'] === 'Y') {
                 $this->setElementProps($element);
             }
-
             $this->arResult['ELEMENT'] = $element;
+
+            if ($arParams['SET_BREADCRUMBS'] === 'Y') {
+                $iblockId = $element['IBLOCK_ID'];
+                $sectionId = $element['IBLOCK_SECTION_ID'];
+                $this->arResult['IBLOCK'] = $this->fetchIblockForBreadCrumbs((int) $iblockId);;
+                $this->arResult['SECTION'] = $this->fetchSectionForBreadCrumbs((int) $iblockId, (int) $sectionId);
+            }
+
             $this->includeComponentTemplate();
+
+            if ($arParams['SET_BREADCRUMBS'] === 'Y') {
+                $iblock = $this->arResult['IBLOCK'];
+                if (!empty($iblock)) {
+                    $this->application->AddChainItem($iblock['NAME'], $iblock['LIST_PAGE_URL']);
+                }
+                $section = $this->arResult['SECTION'];
+                if (!empty($section)) {
+                    $this->application->AddChainItem($section ['NAME'], $section ['SECTION_PAGE_URL']);
+                }
+                $element = $this->arResult['ELEMENT'];
+                if (!empty($element)) {
+                    $this->application->AddChainItem($element['NAME'], $element['DETAIL_PAGE_URL']);
+                }
+            }
         }
+    }
+
+    private function fetchElement(): array
+    {
+        $filter = $this->prepareFilter();
+        $elementsResult = CIBlockElement::GetList(
+            ['SORT' => 'ASC'],
+            $filter
+        );
+
+        $elementsResult->SetUrlTemplates();
+        return $elementsResult->GetNext();
     }
 
     private function prepareFilter(): array
