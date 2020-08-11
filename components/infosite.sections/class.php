@@ -5,10 +5,9 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 }
 
 use Bitrix\Main\Loader;
-use CIblock;
 use CIBlockSection;
 
-use A2C\RBP\Component\Basic;
+use A2C\RBP\Component\InfositeBasic;
 use A2C\RBP\Helpers\{Iblock, Tools};
 
 Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
@@ -25,7 +24,7 @@ Loader::includeModule('a2c.rbp') or Tools::showModuleError('a2c.rbp');
  * @email alex.p.panteleev@gmail.com
  * @link https://github.com/AlexP007/a2c.rbp
  */
-class A2cRbpInfositeSections extends Basic
+class A2cRbpInfositeSections extends InfositeBasic
 {
     public function onPrepareComponentParams($arParams)
     {
@@ -42,6 +41,7 @@ class A2cRbpInfositeSections extends Basic
                 $this->abortResultCache();
                 $this->set404();
             }
+
             $this->cropPictures($sections);
 
             if ($arParams['USE_SECTION_USER_FIELDS'] === 'Y') {
@@ -51,8 +51,7 @@ class A2cRbpInfositeSections extends Basic
 
             if ($arParams['SET_BREADCRUMBS'] === 'Y') {
                 $iblockId = $sections[0]['IBLOCK_ID'];
-                $iblock = $this->fetchIblock((int) $iblockId);
-                $this->arResult['IBLOCK'] = $iblock;
+                $this->arResult['IBLOCK'] = $this->fetchIblockForBreadCrumbs((int) $iblockId);;
             }
 
             $this->includeComponentTemplate();
@@ -123,12 +122,5 @@ class A2cRbpInfositeSections extends Basic
                 $section['~'.$field['FIELD_NAME']] = htmlspecialcharsEx($field['VALUE']);
             }
         }
-    }
-
-    private function fetchIblock(int $id)
-    {
-        $i = CIblock::GetById($id)->Fetch();
-        Iblock::replaceListUrl($i);
-        return $i;
     }
 }

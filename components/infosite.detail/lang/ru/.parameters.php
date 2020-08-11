@@ -21,7 +21,7 @@ $MESS['A2C_RBP_INFOSITE_DETAIL_ELEMENT_FILTER_VALUE'] = 'Значение клю
 $MESS['A2C_RBP_INFOSITE_DETAIL_USE_ELEMENT_PROPERTIES'] = 'Использовать свойства';
 $MESS['A2C_RBP_INFOSITE_DETAIL_IMAGE_HEIGHT'] = 'Высота фото (картинка для анонса)';
 $MESS['A2C_RBP_INFOSITE_DETAIL_IMAGE_WIDTH'] = 'Ширина фото (картинка для анонса)';
-$MESS['A2C_RBP_INFOSITE_DETAIL_SET_BREADCRUMBS'] = 'Добавлять название в цепочку навигации';
+$MESS['A2C_RBP_INFOSITE_DETAIL_SET_BREADCRUMBS'] = 'Добавлять название элемента в цепочку навигации';
 
 // TOOLTIPS
 $MESS['IBLOCK_FILTER_KEY_TIP'] = 'Будет использован при выборке';

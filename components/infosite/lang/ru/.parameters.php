@@ -46,8 +46,9 @@ $MESS['A2C_RBP_INFOSITE_USE_ELEMENT_PROPERTIES'] = 'Использовать с�
 $MESS['A2C_RBP_INFOSITE_DETAIL_IMAGE_HEIGHT'] = 'Высота фото (детальная картинка)';
 $MESS['A2C_RBP_INFOSITE_DETAIL_IMAGE_WIDTH'] = 'Ширина фото (детальная картинка)';
 // additional settings
-$MESS['A2C_RBP_INFOSITE_SET_BREADCRUMBS'] = 'Добавлять название в цепочку навигации';
+$MESS['A2C_RBP_INFOSITE_SET_BREADCRUMBS'] = 'Цепочка навигации';
 // TOOLTIPS
 $MESS['USE_SECTION_USER_FIELDS_TIP'] = 'При выборке, будет сделан запрос за всеми пользовательскими полями';
 $MESS['USE_ELEMENTS_PROPERTIES_TIP'] = 'При выборке, будет сделан запрос за всеми свойствами';
+$MESS['SET_BREADCRUMBS_TIP'] = '(инфоблок->секция->элемент)';
 ?>
