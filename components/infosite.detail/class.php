@@ -57,20 +57,20 @@ class A2cRbpInfositeDetail extends InfositeBasic
             }
 
             $this->includeComponentTemplate();
+        }
 
-            if ($arParams['SET_BREADCRUMBS'] === 'Y') {
-                $iblock = $this->arResult['IBLOCK'];
-                if (!empty($iblock)) {
-                    $this->application->AddChainItem($iblock['NAME'], $iblock['LIST_PAGE_URL']);
-                }
-                $section = $this->arResult['SECTION'];
-                if (!empty($section)) {
-                    $this->application->AddChainItem($section ['NAME'], $section ['SECTION_PAGE_URL']);
-                }
-                $element = $this->arResult['ELEMENT'];
-                if (!empty($element)) {
-                    $this->application->AddChainItem($element['NAME'], $element['DETAIL_PAGE_URL']);
-                }
+        if ($arParams['SET_BREADCRUMBS'] === 'Y') {
+            $iblock = $this->arResult['IBLOCK'];
+            if (!empty($iblock)) {
+                $this->application->AddChainItem($iblock['NAME'], $iblock['LIST_PAGE_URL']);
+            }
+            $section = $this->arResult['SECTION'];
+            if (!empty($section)) {
+                $this->application->AddChainItem($section ['NAME'], $section ['SECTION_PAGE_URL']);
+            }
+            $element = $this->arResult['ELEMENT'];
+            if (!empty($element)) {
+                $this->application->AddChainItem($element['NAME'], $element['DETAIL_PAGE_URL']);
             }
         }
     }
