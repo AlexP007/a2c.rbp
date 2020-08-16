@@ -75,7 +75,7 @@ class A2cRbpInfositeDetail extends InfositeBasic
         }
     }
 
-    private function fetchElement(): array
+    private function fetchElement()
     {
         $filter = $this->prepareFilter();
         $elementsResult = CIBlockElement::GetList(

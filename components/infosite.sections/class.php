@@ -65,7 +65,7 @@ class A2cRbpInfositeSections extends InfositeBasic
         }
     }
 
-    private function fetchSections(): array
+    private function fetchSections()
     {
         $filter = $this->prepareFilter();
         $sectionsResult = CIBlockSection::GetList(
