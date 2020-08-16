@@ -146,7 +146,10 @@ class A2cRbpInfositeDetail extends InfositeBasic
     {
         $iblockId = $element['IBLOCK_ID'];
         $eltId = $element['ID'];
-        $props = CIBlockElement::GetProperty($iblockId, $eltId)->Fetch();
-        $element['PROPERTIES'] = $props;
+        $result = [];
+        CIBlockElement::GetPropertyValuesArray($result, $iblockId, ['=ID' => $eltId]);
+        if (!empty($result)) {
+            $element['PROPERTIES'] = $result[$eltId];
+        }
     }
 }
