@@ -20,6 +20,7 @@ $MESS['A2C_RBP_INFOSITE_ELEMENTS_USE_ELEMENTS_PROPERTIES'] = 'Использов
 $MESS['A2C_RBP_INFOSITE_ELEMENTS_IMAGE_HEIGHT'] = 'Высота фото (картинка для анонса)';
 $MESS['A2C_RBP_INFOSITE_ELEMENTS_IMAGE_WIDTH'] = 'Ширина фото (картинка для анонса)';
 $MESS['A2C_RBP_INFOSITE_ELEMENTS_SET_BREADCRUMBS'] = 'Добавлять название секции в цепочку навигации';
+$MESS['A2C_RBP_INFOSITE_ELEMENTS_SET_TITLE'] = 'Устанавливать название секции в зголовок';
 
 // TOOLTIPS
 $MESS['IBLOCK_FILTER_KEY_TIP'] = 'Будет использован при выборке';

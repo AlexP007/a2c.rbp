@@ -47,6 +47,7 @@ $MESS['A2C_RBP_INFOSITE_DETAIL_IMAGE_HEIGHT'] = 'Высота фото (дета
 $MESS['A2C_RBP_INFOSITE_DETAIL_IMAGE_WIDTH'] = 'Ширина фото (детальная картинка)';
 // additional settings
 $MESS['A2C_RBP_INFOSITE_SET_BREADCRUMBS'] = 'Цепочка навигации';
+$MESS['A2C_RBP_INFOSITE_SET_TITLE'] = 'Устанавливать заголовок';
 // TOOLTIPS
 $MESS['USE_SECTION_USER_FIELDS_TIP'] = 'При выборке, будет сделан запрос за всеми пользовательскими полями';
 $MESS['USE_ELEMENTS_PROPERTIES_TIP'] = 'При выборке, будет сделан запрос за всеми свойствами';

@@ -22,6 +22,7 @@ $APPLICATION->IncludeComponent(
         "IMAGE_HEIGHT"           => $arParams["DETAIL_IMAGE_HEIGHT"],
         "IMAGE_WIDTH"            => $arParams["DETAIL_IMAGE_WIDTH"],
         "SET_BREADCRUMBS"        => $arParams["SET_BREADCRUMBS"],
+        "SET_TITLE"               => $arParams["SET_TITLE"],
         "CACHE_TYPE"             => $arParams["CACHE_TYPE"],
         "CACHE_TIME"             => $arParams["CACHE_TIME"],
     ),

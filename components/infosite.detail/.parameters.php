@@ -71,5 +71,10 @@ $arComponentParameters = [
             "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_DETAIL_SET_BREADCRUMBS"),
             "TYPE"   => "CHECKBOX",
         ],
+        "SET_TITLE"  => [
+            "PARENT" => "ADDITIONAL_SETTINGS",
+            "NAME"   => Loc::getMessage("A2C_RBP_INFOSITE_DETAIL_SET_TITLE"),
+            "TYPE"   => "CHECKBOX",
+        ],
     ]
 ];

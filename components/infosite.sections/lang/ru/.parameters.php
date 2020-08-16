@@ -18,6 +18,7 @@ $MESS['A2C_RBP_INFOSITE_SECTIONS_USE_SECTION_USER_FIELDS'] = 'Использов
 $MESS['A2C_RBP_INFOSITE_SECTIONS_IMAGE_HEIGHT'] = 'Высота фото';
 $MESS['A2C_RBP_INFOSITE_SECTIONS_IMAGE_WIDTH'] = 'Ширина фото';
 $MESS['A2C_RBP_INFOSITE_SECTIONS_SET_BREADCRUMBS'] = 'Добавлять название инфоблока в цепочку навигации';
+$MESS['A2C_RBP_INFOSITE_SECTIONS_SET_TITLE'] = 'Утсанавливать название инфоблока в заголовок таблицы';
 
 // TOOLTIPS
 $MESS['IBLOCK_FILTER_KEY_TIP'] = 'Будет использован при выборке';

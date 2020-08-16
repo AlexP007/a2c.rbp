@@ -51,7 +51,14 @@ class A2cRbpInfositeSections extends InfositeBasic
 
             if ($arParams['SET_BREADCRUMBS'] === 'Y') {
                 $iblockId = $sections[0]['IBLOCK_ID'];
-                $this->arResult['IBLOCK'] = $this->fetchIblockForBreadCrumbs((int) $iblockId);;
+                $this->arResult['IBLOCK'] = $this->fetchIblockForBreadCrumbs((int) $iblockId);
+            }
+
+            if ($arParams['SET_TITLE'] === 'Y') {
+                if (empty($this->arResult['IBLOCK'])) {
+                    $iblockId = $sections[0]['IBLOCK_ID'];
+                    $this->arResult['IBLOCK'] = $this->fetchIblockForBreadCrumbs((int) $iblockId);
+                }
             }
 
             $this->includeComponentTemplate();
@@ -61,6 +68,13 @@ class A2cRbpInfositeSections extends InfositeBasic
             $iblock = $this->arResult['IBLOCK'];
             if (!empty($iblock)) {
                 $this->application->AddChainItem($iblock['NAME'], $iblock['LIST_PAGE_URL']);
+            }
+        }
+
+        if ($arParams['SET_TITLE'] === 'Y') {
+            $iblock = $this->arResult['IBLOCK'];
+            if (!empty($iblock)) {
+                $this->application->SetTitle($iblock['NAME']);
             }
         }
     }

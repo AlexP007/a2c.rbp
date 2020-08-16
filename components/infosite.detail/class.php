@@ -56,6 +56,14 @@ class A2cRbpInfositeDetail extends InfositeBasic
                 $this->arResult['SECTION'] = $this->fetchSectionForBreadCrumbs((int) $iblockId, (int) $sectionId);
             }
 
+            if ($arParams['SET_TITLE'] === 'Y') {
+                if (empty($this->arResult['SECTION'])) {
+                    $iblockId = $element['IBLOCK_ID'];
+                    $sectionId = $element['IBLOCK_SECTION_ID'];
+                    $this->arResult['SECTION'] = $this->fetchSectionForBreadCrumbs((int) $iblockId, (int) $sectionId);
+                }
+            }
+
             $this->includeComponentTemplate();
         }
 
@@ -71,6 +79,13 @@ class A2cRbpInfositeDetail extends InfositeBasic
             $element = $this->arResult['ELEMENT'];
             if (!empty($element)) {
                 $this->application->AddChainItem($element['NAME'], $element['DETAIL_PAGE_URL']);
+            }
+        }
+
+        if ($arParams['SET_TITLE'] === 'Y') {
+            $element = $this->arResult['ELEMENT'];
+            if (!empty($element)) {
+                $this->application->SetTitle($element['NAME']);
             }
         }
     }
