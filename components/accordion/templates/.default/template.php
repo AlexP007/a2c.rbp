@@ -24,12 +24,12 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
         data-type="rbp-acc-opener"
         data-down="<?=$arParams['~ICON_DOWN']?>"
         data-up="<?=$arParams['~ICON_UP']?>"
-        href="#lab<?=$arParams['~ID']?>"
+        href="#<?=$arParams['~ID']?>"
     >
         <?=$arParams['~HEADING']?> <i class="<?=$arParams['~ICON_DOWN']?>"></i>
     </a>
 </h4>
-<div class="rbp-display-none" id="lab<?=$arParams['ID']?>">
+<div class="rbp-display-none" id="<?=$arParams['ID']?>">
     <?php if (isset($arParams['~CAPTURE'])): ?>
         <div><?=$arParams['~CAPTURE']?></div>
     <?php endif; ?>
