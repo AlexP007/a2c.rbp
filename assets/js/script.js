@@ -36,10 +36,13 @@ $(document).ready(function(){
 });
 // accordion
 $(document).ready(function() {
+    let opened = false;
     $('[data-type=rbp-acc-opener]').on('click', accordion);
 
     function accordion(e) {
+
         e.preventDefault();
+        const ANIMATION_TIME = 400;
         const ref = e.target.closest('a');
         const up = ref.dataset.up;
         const down = ref.dataset.down;
@@ -51,17 +54,26 @@ $(document).ready(function() {
             if (target.find(e.target).length > 0) {
                 return;
             }
-            target.slideUp(400);
+            target.slideUp(ANIMATION_TIME);
             icon.get(0).className = down;
             $(document).off('click', accClose);
             $(ref).on('click', accordion);
+            opened = false;
         };
 
-        target.slideDown(400);
-        icon.get(0).className = up;
-        $(document).on('click', accClose);
-        e.stopPropagation();
+        if (opened) {
+            setTimeout(open, ANIMATION_TIME)
+        } else {
+            open();
+        }
 
-        $(ref).off('click', accordion);
+        function open() {
+            target.slideDown(ANIMATION_TIME);
+            icon.get(0).className = up;
+
+            setTimeout(() => $(document).on('click', accClose));
+            $(ref).off('click', accordion);
+            opened = true;
+        }
     }
 });
