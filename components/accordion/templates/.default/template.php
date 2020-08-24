@@ -31,7 +31,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 </h4>
 <div class="rbp-display-none" id="<?=$arParams['ID']?>">
     <?php if (isset($arParams['~CAPTURE'])): ?>
-        <div><?=$arParams['~CAPTURE']?></div>
+        <div><b><?=$arParams['~CAPTURE']?></b></div>
     <?php endif; ?>
     <div><?=$arParams['~MAIN']?></div>
 </div>
