@@ -8,3 +8,7 @@
 .rbp-animated-icon {
     animation: rbp-animate-mouse-btn 1s infinite;
 }
+
+.rbp-display-none {
+    display: none;
+}

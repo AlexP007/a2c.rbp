@@ -31,3 +31,35 @@ $(document).ready(function(){
         });
     }
 });
+
+$(document).ready(function() {
+    // accordion
+    $('[data-type=rbp-acc-opener]').on('click', accordion);
+
+    function accordion(e) {
+        e.preventDefault();
+        const ref = e.target.closest('a');
+        const up = ref.dataset.up;
+        const down = ref.dataset.down;
+        const target = $(ref.hash);
+        const icon = $(ref).find('i');
+
+
+        const accClose = (e) => {
+            if (target.find(e.target).length > 0) {
+                return;
+            }
+            target.slideUp(400);
+            icon.get(0).className = down;
+            $(document).off('click', accClose);
+            $(ref).on('click', accordion);
+        };
+
+        target.slideDown(400);
+        icon.get(0).className = up;
+        $(document).on('click', accClose);
+        e.stopPropagation();
+
+        $(ref).off('click', accordion);
+    }
+});
