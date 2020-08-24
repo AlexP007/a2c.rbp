@@ -40,17 +40,17 @@ $arComponentParameters = [
             'TYPE'   => 'STRING',
         ],
         'ICON_DOWN'     => [
-            'PARENT' => 'ADDITIONAL',
+            'PARENT' => 'ADDITIONAL_SETTINGS',
             'NAME'   => Loc::getMessage('A2C_RBP_ACCORDION_ICON_DOWN'),
             'TYPE'   => 'STRING',
         ],
         'ICON_UP'       => [
-            'PARENT' => 'ADDITIONAL',
+            'PARENT' => 'ADDITIONAL_SETTINGS',
             'NAME'   => Loc::getMessage('A2C_RBP_ACCORDION_ICON_UP'),
             'TYPE'   => 'STRING',
         ],
         'HEADING_CLASS' => [
-            'PARENT' => 'ADDITIONAL',
+            'PARENT' => 'ADDITIONAL_SETTINGS',
             'NAME'   => Loc::getMessage('A2C_RBP_ACCORDION_HEADING_CLASS'),
             'TYPE'   => 'STRING',
         ],

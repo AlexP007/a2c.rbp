@@ -1,6 +1,9 @@
 // animated icon
 $(document).ready(function(){
     const icon = $("a[href^='#'][data-type='rbp-animated-icon']");
+    if (icon.length < 1) {
+        return;
+    }
     const scrollContainerSelector = icon.data('selector');
     const scrollToFade = icon.data('scroll');
     let usePosition = true;
@@ -31,9 +34,8 @@ $(document).ready(function(){
         });
     }
 });
-
+// accordion
 $(document).ready(function() {
-    // accordion
     $('[data-type=rbp-acc-opener]').on('click', accordion);
 
     function accordion(e) {

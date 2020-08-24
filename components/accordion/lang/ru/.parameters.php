@@ -18,7 +18,7 @@ $MESS['A2C_RBP_ACCORDION_CAPTURE'] = 'Подпись';
 $MESS['A2C_RBP_ACCORDION_MAIN'] = 'Основное содержимое';
 $MESS['A2C_RBP_ACCORDION_ICON_DOWN'] = 'Иконка открытия';
 $MESS['A2C_RBP_ACCORDION_ICON_UP'] = 'Иконка закрытия';
-$MESS['A2C_RBP_ACCORDION_HEADING_CLASS'] = 'Класс заголовка';
+$MESS['A2C_RBP_ACCORDION_HEADING_CLASS'] = 'Класс заголовкаgs';
 
 // TOOLTIP
 $MESS['ACCORDION_ID_TIP'] = 'Должен быть уникальным в рамках одной страницы';

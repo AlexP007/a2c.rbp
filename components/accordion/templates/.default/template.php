@@ -25,6 +25,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
         data-down="<?=$arParams['ICON_DOWN']?>"
         data-up="<?=$arParams['ICON_UP']?>"
         href="#lab<?=$arParams['ID']?>"
+    >
         <?=$arParams['HEADING']?> <i class="<?=$arParams['ICON_DOWN']?>"></i>
     </a>
 </h4>
