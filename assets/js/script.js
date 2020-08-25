@@ -51,6 +51,7 @@ $(document).ready(function() {
 
 
         const accClose = (e) => {
+            e.preventDefault();
             if (target.find(e.target).length > 0) {
                 return;
             }
