@@ -51,7 +51,9 @@ $(document).ready(function() {
 
 
         const accClose = (e) => {
-            e.preventDefault();
+            if (ref === e.target.closest('a')) {
+                e.preventDefault();
+            }
             if (target.find(e.target).length > 0) {
                 return;
             }
