@@ -49,20 +49,10 @@ class A2cRbpInfositeElements extends InfositeBasic
             }
             $this->arResult['ELEMENTS'] = $elements;
 
-            if ($arParams['SET_BREADCRUMBS'] === 'Y') {
-                $iblockId = $elements[0]['IBLOCK_ID'];
-                $sectionId = $elements[0]['IBLOCK_SECTION_ID'];
-                $this->arResult['IBLOCK'] = $this->fetchIblockForBreadCrumbs((int) $iblockId);;
-                $this->arResult['SECTION'] = $this->fetchSectionForBreadCrumbs((int) $iblockId, (int) $sectionId);
-            }
-
-            if ($arParams['SET_TITLE'] === 'Y') {
-                if (empty($this->arResult['SECTION'])) {
-                    $iblockId = $elements[0]['IBLOCK_ID'];
-                    $sectionId = $elements[0]['IBLOCK_SECTION_ID'];
-                    $this->arResult['SECTION'] = $this->fetchSectionForBreadCrumbs((int) $iblockId, (int) $sectionId);
-                }
-            }
+            $iblockId = $elements[0]['IBLOCK_ID'];
+            $sectionId = $elements[0]['IBLOCK_SECTION_ID'];
+            $this->arResult['IBLOCK'] = $this->fetchIblockForBreadCrumbs((int) $iblockId);;
+            $this->arResult['SECTION'] = $this->fetchSectionForBreadCrumbs((int) $iblockId, (int) $sectionId);
 
             $this->includeComponentTemplate();
         }
