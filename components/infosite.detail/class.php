@@ -64,7 +64,7 @@ class A2cRbpInfositeDetail extends InfositeBasic
             }
             $section = $this->arResult['SECTION'];
             if (!empty($section)) {
-                $this->application->AddChainItem($section ['NAME'], $section ['SECTION_PAGE_URL']);
+                $this->application->AddChainItem($section ['NAME'], $section['SECTION_PAGE_URL']);
             }
             $element = $this->arResult['ELEMENT'];
             if (!empty($element)) {
